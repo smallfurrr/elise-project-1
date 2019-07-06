@@ -1,0 +1,25 @@
+#cards-output {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.food-card {
+	display: inline-block;
+	margin: 10px 15px;
+	text-align: center;
+}
+
+.food-card img {
+	max-width: 200px;
+	height: 150px;
+}
+
+.food-card p {
+	font-size: 15px;
+	text-align: center;
+	margin: 0;
+}
+
+.select-btn {
+	/*visibility: hidden;*/
+}

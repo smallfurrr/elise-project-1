@@ -1,7 +1,4 @@
-// save final dishes as an array
-var getAllDishes = function() {
-
-    var startingDishes = [
+ var startingDishes = [
         {
             name: "Chicken Rice",
             ethnicity: "Chinese",
@@ -10,7 +7,7 @@ var getAllDishes = function() {
             servingDish: "Plate",
             color: "White",
             dishType: "Meal",
-            image:"images/foodphotoscrop/chicken-rice.jpg"
+            image:"images/foodphotoscrop/chicken-rice.jpeg"
         },
 
         {
@@ -21,7 +18,7 @@ var getAllDishes = function() {
             servingDish: "Bowl",
             color: "Red",
             dishType: "Meal",
-            image:"images/foodphotoscrop/laksa.jpg"
+            image:"images/foodphotoscrop/laksa.jpeg"
         },
 
         {
@@ -32,7 +29,7 @@ var getAllDishes = function() {
             servingDish: "Plate",
             color: "Yellow",
             dishType: "Meal",
-            image:"images/foodphotoscrop/hokkien-mee.jpg"
+            image:"images/foodphotoscrop/hokkien-mee.jpeg"
         },
 
         {
@@ -43,7 +40,7 @@ var getAllDishes = function() {
             servingDish: "Plate",
             color: "Red",
             dishType: "Meal",
-            image:"images/foodphotoscrop/chilli-crab.jpg"
+            image:"images/foodphotoscrop/chilli-crab.jpeg"
         },
 
         {
@@ -54,7 +51,7 @@ var getAllDishes = function() {
             servingDish: "Plate",
             color: "White",
             dishType: "Meal",
-            image:"images/foodphotoscrop/nasi-lemak.jpg"
+            image:"images/foodphotoscrop/nasi-lemak.jpeg"
         },
 
         {
@@ -65,7 +62,7 @@ var getAllDishes = function() {
             servingDish: "Bowl",
             color: "Brown",
             dishType: "Meal",
-            image:"images/foodphotoscrop/mee-rebus.jpg"
+            image:"images/foodphotoscrop/mee-rebus.jpeg"
         },
 
         {
@@ -76,7 +73,7 @@ var getAllDishes = function() {
             servingDish: "Bowl",
             color: "Brown",
             dishType: "Meal",
-            image:"images/original/beef-rendang.jpg"
+            image:"images/foodphotoscrop/beef-rendang.jpeg"
         },
 
         {
@@ -87,7 +84,7 @@ var getAllDishes = function() {
             servingDish: "Others", //trigger serving dish special statement
             color: "Brown",
             dishType: "Meal",
-            image:"images/original/satay.jpg"
+            image:"images/foodphotoscrop/satay.jpeg"
         },
 
         {
@@ -98,7 +95,7 @@ var getAllDishes = function() {
             servingDish: "Plate",
             color: "Yellow",
             dishType: "Meal",
-            image:"images/original/nasi-briyani.jpg"
+            image:"images/foodphotoscrop/nasi-briyani.jpeg"
         },
 
         {
@@ -109,7 +106,7 @@ var getAllDishes = function() {
             servingDish: "Plate",
             color: "Brown",
             dishType: "Meal",
-            image:"images/original/roti-prata.jpg"
+            image:"images/foodphotoscrop/roti-prata.jpeg"
         },
 
         {
@@ -120,7 +117,7 @@ var getAllDishes = function() {
             servingDish: "Bowl",
             color: "Red",
             dishType: "Meal",
-            image:"images/original/fish-head-curry.jpg"
+            image:"images/foodphotoscrop/fish-head-curry.jpeg"
         },
 
         {
@@ -131,7 +128,7 @@ var getAllDishes = function() {
             servingDish: "Plate",
             color: "Red",
             dishType: "Meal",
-            image:"images/original/tandoori-chicken.jpg"
+            image:"images/foodphotoscrop/tandoori-chicken.jpeg"
         },
 
         {
@@ -142,7 +139,7 @@ var getAllDishes = function() {
             servingDish: "Others", //trigger serving dish special statement
             color: "Brown",
             dishType: "Snack or Dessert",
-            image:"images/original/goreng-pisang.jpg"
+            image:"images/foodphotoscrop/goreng-pisang.jpeg"
         },
 
         // {
@@ -153,7 +150,7 @@ var getAllDishes = function() {
         //     servingDish: "Bowl",
         //     color: "Brown",
         //     dishType: "Snack or Dessert",
-        //     image:"images/original/cheng-tng.jpg"
+        //     image:"images/foodphotoscrop/cheng-tng.jpeg"
         // },
 
         {
@@ -164,7 +161,7 @@ var getAllDishes = function() {
             servingDish: "Bowl",
             color: "Green",
             dishType: "Snack or Dessert",
-            image:"images/original/chendol.jpg"
+            image:"images/foodphotoscrop/chendol.jpeg"
         },
 
         {
@@ -175,7 +172,7 @@ var getAllDishes = function() {
             servingDish: "Bowl",
             color: "Red",
             dishType: "Snack or Dessert",
-            image:"images/original/ice-kachang.jpg"
+            image:"images/foodphotoscrop/ice-kachang.jpeg"
         },
 
         {
@@ -186,7 +183,7 @@ var getAllDishes = function() {
             servingDish: "Plate",
             color: "Green",
             dishType: "Snack or Dessert",
-            image:"images/original/pandan-cake.jpg"
+            image:"images/foodphotoscrop/pandan-cake.jpeg"
         },
 
         {
@@ -197,7 +194,7 @@ var getAllDishes = function() {
             servingDish: "Others", //trigger serving dish special statement
             color: "Brown",
             dishType: "Snack or Dessert",
-            image:"images/original/curry-puff.jpg"
+            image:"images/foodphotoscrop/curry-puff.jpeg"
         },
 
         {
@@ -208,19 +205,57 @@ var getAllDishes = function() {
             servingDish: "Others", //trigger serving dish special statement
             color: "Brown",
             dishType: "Snack or Dessert",
-           immage:"images/original/vadai.jpg"
+            image:"images/foodphotoscrop/vadai.jpeg"
         }
     ]
-};
-//19 total
 
-//base template
-// var dish = {
-//   ethnicity: "Chinese"/"Malay"/"Indian"/"Others",
-//   //others->"doesn't exactly fall into any of those categories"
-//   temperature: warm/"Cold",
-//   base: "Noodles"/"Rice"/"Meat"/others,
-//   servingDish: plate/"Bowl"/others AKA handheld,
-//   color: null,
-//   dishType: snackOrDessert/"Meal"
-// };
+//start of game - get random dish
+var getRandomDish = function(){
+    var randomIndex = Math.floor(Math.random() * 19);
+    console.log(randomIndex);
+    //dbl check this
+    var dishName = startingDishes[randomIndex].name;
+    console.log(dishName);
+}
+
+getRandomDish();
+
+//get document by id 'output'
+//for each item in startingDishes, create a div with .food-card class
+//for each div, create an img with the class 'food-img' and id of i
+//for each div, create a button with a class select-btn and the value and id of i + an eventListener to check for win
+//append those individual divs to output
+
+function createFoodCards() {
+        for (var i = 0; i < startingDishes.length; i++) {
+            var cardsOutput = document.getElementById('cards-output');
+
+            var foodCard = document.createElement('div');
+            foodCard.className = 'food-card';
+
+            var foodImage = document.createElement('img');
+            foodImage.src = startingDishes[i].image;
+
+            var foodName = document.createElement ("p");
+            foodName.innerHTML = startingDishes[i].name;
+
+            var selectButton = document.createElement('button');
+            selectButton.className = 'select-btn';
+            selectButton.type = 'submit';
+            selectButton.innerText = "Select";
+            selectButton.id = i;
+            selectButton.value = i;
+            //selectButton.addEventListener('click', checkForWin);
+
+            foodCard.appendChild(foodImage);
+            foodCard.appendChild(foodName);
+            foodCard.appendChild(selectButton);
+            cardsOutput.appendChild(foodCard);
+    }
+};
+
+createFoodCards();
+
+// foodCard.setAttribute('className', 'food-card');
+// foodCard.setAttribute('src', 'startingDishes[i].image');
+// foodCard.setAttribute('data-id', i);
