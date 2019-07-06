@@ -1,18 +1,26 @@
-/*the entire questions div area (pic and text area*/
-#questions-output {
-
+/*the entire questions div area (pic and text*/
+#questions-output:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
+/*img of seetoh*/
 #seetoh {
 	max-height: 200px;
+	margin: 10px;
 	float: left;
 }
 
-/*just for text output*/
-#question-box {/*
-	display: inline-block;*/
+/*displays hint choices*/
+#question-box {
+
 }
 
+/*displays all chosen hints*/
+#hint-box {
+	background-color: pink;
+}
 
 #cards-output {
 	margin: 0 auto;

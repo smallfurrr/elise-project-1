@@ -221,15 +221,20 @@ var getRandomDish = function(){
     dishType = startingDishes[randomIndex].dishType;
 
     console.log(dishName);
-    console.log(dishEthnicity);
-    console.log(dishTemp);
-    console.log(dishBase);
-    console.log(dishServe);
-    console.log(dishColor);
-    console.log(dishType);
+    // console.log(dishEthnicity);
+    // console.log(dishTemp);
+    // console.log(dishBase);
+    // console.log(dishServe);
+    // console.log(dishColor);
+    // console.log(dishType);
 };
 
 getRandomDish();
+
+   // var selectHint = function {
+        //create random index twice
+        //get questions based
+    // }
 
 function createHintArea() {
     var questionsOutput = document.getElementById('questions-output');
@@ -240,13 +245,30 @@ function createHintArea() {
 
     var questionBox = document.createElement('div');
     questionBox.id = 'question-box';
+    var startingHints = document.createElement('p');
+    startingHints.innerText = 'This is where the first 2 questions will go!'
+    questionBox.appendChild(startingHints);
 
-    var loremIpsum = document.createElement('p');
-    loremIpsum.innerText = 'Mollit sit sunt eiusmod eu occaecat qui sint est veniam laborum ut ullamco id anim sed sint esse mollit eiusmod esse sunt sed ut sit do dolore et duis fugiat aliquip est anim in ut nostrud. Ut ullamco elit et elit est sunt eu aliqua anim ex irure dolore adipisicing.'
+    var input = document.createElement("input");
+    input.type = "text";
+    input.id = "input";
 
-    questionBox.appendChild(loremIpsum);
+    // input.addEventListener("keydown", event => {
+    // if (event.keyCode == 13) {
+    //     selectHint();
+    //     }
+    // });
+
+    var hintBox = document.createElement('div');
+    hintBox.id = 'hint-box';
+    var chosenHints = document.createElement('p');
+    chosenHints.innerText = 'This is where the hints will go, each time a user selects a hint it has to appear here lmao'
+    hintBox.appendChild(chosenHints);
+
     questionsOutput.appendChild(seetohImage);
     questionsOutput.appendChild(questionBox);
+    questionsOutput.appendChild(input);
+    questionsOutput.appendChild(hintBox);
 }
 
 function createFoodCards() {
@@ -280,7 +302,8 @@ function createFoodCards() {
 createHintArea();
 createFoodCards();
 
-const questions = [
+//questions has to be down here or returns undefined
+let questions = [
     {
         question: "Which ethnic group is this dish most commonly associated with?",
         answer: `${dishEthnicity}`
@@ -307,7 +330,11 @@ const questions = [
     },
 
     {
-        question: "Is this dish usually eaten as a snack/dessert or a main meal? Although everything can be a snack if you just believe in yourself!"
+        question: "Is this dish usually eaten as a snack/dessert or a main meal? Although everything can be a snack if you just believe in yourself!",
         answer: `${dishType}`
     }
 ];
+
+let questionsClone = JSON.parse(JSON.stringify(questions));
+
+console.log(questionsClone);
