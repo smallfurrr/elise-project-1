@@ -1,7 +1,5 @@
 // save final dishes as an array
-var getAllDishes = function() {
-
-    var startingDishes = [
+var startingDishes = [
         {
             name: "Chicken Rice",
             ethnicity: "Chinese",
@@ -211,8 +209,7 @@ var getAllDishes = function() {
            immage:"images/original/vadai.jpg"
         }
     ]
-};
-//19 total
+//18 total
 
 //base template
 // var dish = {

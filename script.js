@@ -1,4 +1,13 @@
- var startingDishes = [
+//necessary global variables
+let dishName = null;
+let dishEthnicity = null;
+let dishTemp = null;
+let dishBase = null;
+let dishServe = null;
+let dishColor = null;
+let dishType = null;
+
+const startingDishes = [
         {
             name: "Chicken Rice",
             ethnicity: "Chinese",
@@ -142,17 +151,6 @@
             image:"images/foodphotoscrop/goreng-pisang.jpeg"
         },
 
-        // {
-        //     name: "Cheng Tng",
-        //     ethnicity: "Chinese",
-        //     temperature: "Cold",
-        //     base: "Others", //trigger base special statement
-        //     servingDish: "Bowl",
-        //     color: "Brown",
-        //     dishType: "Snack or Dessert",
-        //     image:"images/foodphotoscrop/cheng-tng.jpeg"
-        // },
-
         {
             name: "Chendol",
             ethnicity: "Others",
@@ -207,55 +205,109 @@
             dishType: "Snack or Dessert",
             image:"images/foodphotoscrop/vadai.jpeg"
         }
-    ]
+];
 
 //start of game - get random dish
 var getRandomDish = function(){
     var randomIndex = Math.floor(Math.random() * 19);
     console.log(randomIndex);
-    //dbl check this
-    var dishName = startingDishes[randomIndex].name;
+
+    dishName = startingDishes[randomIndex].name;
+    dishEthnicity = startingDishes[randomIndex].ethnicity;
+    dishTemp = startingDishes[randomIndex].temperature;
+    dishBase = startingDishes[randomIndex].base;
+    dishServe = startingDishes[randomIndex].servingDish;
+    dishColor = startingDishes[randomIndex].color;
+    dishType = startingDishes[randomIndex].dishType;
+
     console.log(dishName);
-}
+    console.log(dishEthnicity);
+    console.log(dishTemp);
+    console.log(dishBase);
+    console.log(dishServe);
+    console.log(dishColor);
+    console.log(dishType);
+};
 
 getRandomDish();
 
-//get document by id 'output'
-//for each item in startingDishes, create a div with .food-card class
-//for each div, create an img with the class 'food-img' and id of i
-//for each div, create a button with a class select-btn and the value and id of i + an eventListener to check for win
-//append those individual divs to output
+function createHintArea() {
+    var questionsOutput = document.getElementById('questions-output');
+
+    var seetohImage = document.createElement('img');
+    seetohImage.id = 'seetoh';
+    seetohImage.src = 'images/seetoh/pic5.jpeg';
+
+    var questionBox = document.createElement('div');
+    questionBox.id = 'question-box';
+
+    var loremIpsum = document.createElement('p');
+    loremIpsum.innerText = 'Mollit sit sunt eiusmod eu occaecat qui sint est veniam laborum ut ullamco id anim sed sint esse mollit eiusmod esse sunt sed ut sit do dolore et duis fugiat aliquip est anim in ut nostrud. Ut ullamco elit et elit est sunt eu aliqua anim ex irure dolore adipisicing.'
+
+    questionBox.appendChild(loremIpsum);
+    questionsOutput.appendChild(seetohImage);
+    questionsOutput.appendChild(questionBox);
+}
 
 function createFoodCards() {
-        for (var i = 0; i < startingDishes.length; i++) {
-            var cardsOutput = document.getElementById('cards-output');
+    for (var i = 0; i < startingDishes.length; i++) {
+        var cardsOutput = document.getElementById('cards-output');
 
-            var foodCard = document.createElement('div');
-            foodCard.className = 'food-card';
+        var foodCard = document.createElement('div');
+        foodCard.className = 'food-card';
 
-            var foodImage = document.createElement('img');
-            foodImage.src = startingDishes[i].image;
+        var foodImage = document.createElement('img');
+        foodImage.src = startingDishes[i].image;
 
-            var foodName = document.createElement ("p");
-            foodName.innerHTML = startingDishes[i].name;
+        var foodName = document.createElement("p");
+        foodName.innerHTML = startingDishes[i].name;
 
-            var selectButton = document.createElement('button');
-            selectButton.className = 'select-btn';
-            selectButton.type = 'submit';
-            selectButton.innerText = "Select";
-            selectButton.id = i;
-            selectButton.value = i;
-            //selectButton.addEventListener('click', checkForWin);
+        var selectButton = document.createElement('button');
+        selectButton.className = 'select-btn';
+        selectButton.type = 'submit';
+        selectButton.innerText = "Select";
+        selectButton.id = i;
+        selectButton.value = i;
+        //selectButton.addEventListener('click', checkForWin);
 
-            foodCard.appendChild(foodImage);
-            foodCard.appendChild(foodName);
-            foodCard.appendChild(selectButton);
-            cardsOutput.appendChild(foodCard);
+        foodCard.appendChild(foodImage);
+        foodCard.appendChild(foodName);
+        foodCard.appendChild(selectButton);
+        cardsOutput.appendChild(foodCard);
     }
 };
 
+createHintArea();
 createFoodCards();
 
-// foodCard.setAttribute('className', 'food-card');
-// foodCard.setAttribute('src', 'startingDishes[i].image');
-// foodCard.setAttribute('data-id', i);
+const questions = [
+    {
+        question: "Which ethnic group is this dish most commonly associated with?",
+        answer: `${dishEthnicity}`
+    },
+
+    {
+        question: "Is this dish best eaten hot or cold?",
+        answer: `${dishTemp}`
+    },
+
+    {
+        question: "Is this dish noodle, rice, or meat-based? Could be none of the above!",
+        answer: `${dishBase}`
+    },
+
+    {
+        question: "What does this dish usually come served in? (Hint: Cutlery is not always involved!)",
+        answer: `${dishServe}`
+    },
+
+    {
+        question: "What is the primary color of this dish?",
+        answer: `${dishColor}`
+    },
+
+    {
+        question: "Is this dish usually eaten as a snack/dessert or a main meal? Although everything can be a snack if you just believe in yourself!"
+        answer: `${dishType}`
+    }
+];

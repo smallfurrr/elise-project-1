@@ -1,11 +1,28 @@
+/*the entire questions div area (pic and text area*/
+#questions-output {
+
+}
+
+#seetoh {
+	max-height: 200px;
+	float: left;
+}
+
+/*just for text output*/
+#question-box {/*
+	display: inline-block;*/
+}
+
+
 #cards-output {
 	margin: 0 auto;
 	text-align: center;
+	border: 0.5px solid black;
 }
 
 .food-card {
 	display: inline-block;
-	margin: 10px 15px;
+	margin: 10px 18px;
 	text-align: center;
 }
 
