@@ -236,6 +236,42 @@ getRandomDish();
         //get questions based
     // }
 
+//questions must come after getRandomDish() or all answers will be undefined
+let questions = [
+    {
+        question: "Which ethnic group is this dish most commonly associated with?",
+        answer: `${dishEthnicity}`
+    },
+
+    {
+        question: "Is this dish best eaten hot or cold?",
+        answer: `${dishTemp}`
+    },
+
+    {
+        question: "Is this dish noodle, rice, or meat-based? Could be none of the above!",
+        answer: `${dishBase}`
+    },
+
+    {
+        question: "What does this dish usually come served in? (Hint: Cutlery is not always involved!)",
+        answer: `${dishServe}`
+    },
+
+    {
+        question: "What is the primary color of this dish?",
+        answer: `${dishColor}`
+    },
+
+    {
+        question: "Is this dish usually eaten as a snack/dessert or a main meal? Although everything can be a snack if you just believe in yourself!",
+        answer: `${dishType}`
+    }
+];
+
+let questionsClone = JSON.parse(JSON.stringify(questions));
+console.log(questionsClone);
+
 function createHintArea() {
     var questionsOutput = document.getElementById('questions-output');
 
@@ -262,7 +298,7 @@ function createHintArea() {
     var hintBox = document.createElement('div');
     hintBox.id = 'hint-box';
     var chosenHints = document.createElement('p');
-    chosenHints.innerText = 'This is where the hints will go, each time a user selects a hint it has to appear here lmao'
+    chosenHints.innerText = 'This is where the hints will go, each time a user selects a hint it has to appear here lmao also I realised have to display question and answer also cos of the Others answers i think attach a class and then can style the Q and A'
     hintBox.appendChild(chosenHints);
 
     questionsOutput.appendChild(seetohImage);
@@ -301,40 +337,3 @@ function createFoodCards() {
 
 createHintArea();
 createFoodCards();
-
-//questions has to be down here or returns undefined
-let questions = [
-    {
-        question: "Which ethnic group is this dish most commonly associated with?",
-        answer: `${dishEthnicity}`
-    },
-
-    {
-        question: "Is this dish best eaten hot or cold?",
-        answer: `${dishTemp}`
-    },
-
-    {
-        question: "Is this dish noodle, rice, or meat-based? Could be none of the above!",
-        answer: `${dishBase}`
-    },
-
-    {
-        question: "What does this dish usually come served in? (Hint: Cutlery is not always involved!)",
-        answer: `${dishServe}`
-    },
-
-    {
-        question: "What is the primary color of this dish?",
-        answer: `${dishColor}`
-    },
-
-    {
-        question: "Is this dish usually eaten as a snack/dessert or a main meal? Although everything can be a snack if you just believe in yourself!",
-        answer: `${dishType}`
-    }
-];
-
-let questionsClone = JSON.parse(JSON.stringify(questions));
-
-console.log(questionsClone);
