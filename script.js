@@ -275,9 +275,9 @@ let questions = [
 let questionsClone = JSON.parse(JSON.stringify(questions));
 // console.log(questionsClone);
 
-//creates first 2 questions - rename if reusing for all
-function getStartingHints() {
-    //generating two random numbers to get an index from existing questionsClone objects
+//creates 2 random questions
+function generateHints() {
+    //generate two random numbers to get an index from existing questionsClone objects
     let x = Math.floor(Math.random()* questionsClone.length);
     let y = Math.floor(Math.random()* questionsClone.length);
 
@@ -295,34 +295,58 @@ function getStartingHints() {
     // console.log(questionOne);
     // console.log(questionTwo);
 };
-getStartingHints();
+generateHints();
 
 //action that happens when player enters "1" or "2" to select hint
 function selectHint() {
     //place the 2 random question-answer objects in their own array
+    //make sure that displayedQuestions empties each time selectHint() runs
     let displayedQuestions = [];
     displayedQuestions.push(questionOne);
     displayedQuestions.push(questionTwo);
 
     console.log(displayedQuestions);
-    //must ensure that displayedQuestions array is accessible to function
+
+    //get what user actually typed in + clear input field
     const input = document.getElementById('input');
-
-    //what user actually typed in
     let userInput = parseInt(input.value);
-    console.log(userInput);
+    // console.log(userInput);
+    input.value = "";
 
-    //index in displayedQuestions according to what user chose
+    //index in displayedQuestions according to what user chose (0 or 1)
     let selectedIndex = userInput - 1;
-    console.log(selectedIndex);
+    // console.log(selectedIndex);
 
     //targeting the hint box
     const hintBox = document.getElementById('hint-box');
 
+    //formatting chosen hint and answer
     let chosenHint = document.createElement('p');
     chosenHint.innerHTML = `${displayedQuestions[selectedIndex].question}<br>${displayedQuestions[selectedIndex].answer}`
 
+    //move selected hint to hint box (make sure not overwriting previous ones)
     hintBox.appendChild(chosenHint);
+
+    //remove selected question from questionsClone
+    if (userInput === 1) {
+        // meaning that questionsClone[x] aka questionOne should be removed from questionsClone
+        for (var i=0; i < questionsClone.length; i++) {
+            if (questionOne === questionsClone[i]) {
+                questionsClone.splice(i, 1);
+                return questionsClone;
+            }
+        }
+   } else if (userInput === 2) {
+    // meaning that questionsClone[y] aka questionTwo should be removed from questionsClone
+        for (var i=0; i < questionsClone.length; i++) {
+            if (questionTwo === questionsClone[i]) {
+                questionsClone.splice(i, 1);
+                return questionsClone;
+            }
+        }
+   }
+    //generateHints();
+    //ack but with that order im not sure if the hints in the current hint area will refresh without rebuilding the entire page, must test test. i think it.. SHOULD be ok if i leave questionOne and questionTwo as global variables
 }
 
 //dynamically creates the game area based on the pre-calculated values above
