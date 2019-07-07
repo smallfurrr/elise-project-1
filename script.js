@@ -238,7 +238,7 @@ getRandomDish();
         //get questions based
     // }
 
-//questions must come after getRandomDish() or all answers will be undefined
+//questions must be placed after getRandomDish() or all answers will be undefined
 let questions = [
     {
         question: "Which ethnic group is this dish most commonly associated with?",
@@ -305,7 +305,7 @@ function selectHint() {
     displayedQuestions.push(questionOne);
     displayedQuestions.push(questionTwo);
 
-    console.log(displayedQuestions);
+    // console.log(displayedQuestions);
 
     //get what user actually typed in + clear input field
     const input = document.getElementById('input');
@@ -333,7 +333,6 @@ function selectHint() {
         for (var i=0; i < questionsClone.length; i++) {
             if (questionOne === questionsClone[i]) {
                 questionsClone.splice(i, 1);
-                return questionsClone;
             }
         }
    } else if (userInput === 2) {
@@ -341,12 +340,14 @@ function selectHint() {
         for (var i=0; i < questionsClone.length; i++) {
             if (questionTwo === questionsClone[i]) {
                 questionsClone.splice(i, 1);
-                return questionsClone;
             }
         }
    }
-    //generateHints();
-    //ack but with that order im not sure if the hints in the current hint area will refresh without rebuilding the entire page, must test test. i think it.. SHOULD be ok if i leave questionOne and questionTwo as global variables
+    generateHints();
+
+    //targeting the <p> element within question-box, to dynamically reflect new question choices
+    const choiceDisplay = document.getElementById('question-choice-display');
+    choiceDisplay.innerHTML = `What would you like to ask? <span class ="question"> 1. ${questionOne.question}</span> or <span class ="question">2. ${questionTwo.question}</span>`
 }
 
 //dynamically creates the game area based on the pre-calculated values above
@@ -359,9 +360,10 @@ function createHintArea() {
 
     var questionBox = document.createElement('div');
     questionBox.id = 'question-box';
-    var startingHints = document.createElement('p');
-    startingHints.innerHTML = `What would you like to ask? <span class ="question"> 1. ${questionOne.question}</span> or <span class ="question">2. ${questionTwo.question}</span>`
-    questionBox.appendChild(startingHints);
+    var hintsDisplay = document.createElement('p');
+    hintsDisplay.id = ('question-choice-display');
+    hintsDisplay.innerHTML = `What would you like to ask? <span class ="question"> 1. ${questionOne.question}</span> or <span class ="question">2. ${questionTwo.question}</span>`
+    questionBox.appendChild(hintsDisplay);
 
     var input = document.createElement("input");
     input.type = "text";
