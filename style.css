@@ -52,3 +52,7 @@
 .select-btn {
 	/*visibility: hidden;*/
 }
+
+.hide {
+	display: none;
+}

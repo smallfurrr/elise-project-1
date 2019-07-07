@@ -1,3 +1,7 @@
+$(document).ready(() => {
+$('.food-card').corner("sc:#009");
+});
+
 //necessary global variables
 let dishName = null;
 let dishEthnicity = null;
@@ -402,6 +406,7 @@ function createFoodCards() {
 
         var selectButton = document.createElement('button');
         selectButton.className = 'select-btn';
+        selectButton.className = 'hide';
         selectButton.type = 'submit';
         selectButton.innerText = "Select";
         selectButton.id = i;
