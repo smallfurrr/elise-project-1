@@ -299,6 +299,12 @@ getStartingHints();
 
 //action that happens when player enters "1" or "2" to select hint
 function selectHint() {
+    //place the 2 random question-answer objects in their own array
+    let displayedQuestions = [];
+    displayedQuestions.push(questionOne);
+    displayedQuestions.push(questionTwo);
+
+    console.log(displayedQuestions);
     //must ensure that displayedQuestions array is accessible to function
     const input = document.getElementById('input');
 
@@ -310,21 +316,17 @@ function selectHint() {
     let selectedIndex = userInput - 1;
     console.log(selectedIndex);
 
-    //this will the selected question
-    // displayedQuestions[selectedIndex]
+    //targeting the hint box
+    const hintBox = document.getElementById('hint-box');
 
+    let chosenHint = document.createElement('p');
+    chosenHint.innerHTML = `${displayedQuestions[selectedIndex].question}<br>${displayedQuestions[selectedIndex].answer}`
 
+    hintBox.appendChild(chosenHint);
 }
 
 //dynamically creates the game area based on the pre-calculated values above
 function createHintArea() {
-    //place the 2 random question-answer objects in their own array
-    let displayedQuestions = [];
-    displayedQuestions.push(questionOne);
-    displayedQuestions.push(questionTwo);
-
-    console.log(displayedQuestions);
-
     var questionsOutput = document.getElementById('questions-output');
 
     var seetohImage = document.createElement('img');
@@ -350,7 +352,7 @@ function createHintArea() {
     var hintBox = document.createElement('div');
     hintBox.id = 'hint-box';
     var chosenHints = document.createElement('p');
-    chosenHints.innerText = 'This is where the hints will go, each time a user selects a hint it has to appear here lmao also I realised have to display question and answer also cos of the Others answers i think attach a class and then can style the Q and A'
+    chosenHints.innerText = 'These are your chosen hints!'
     hintBox.appendChild(chosenHints);
 
     questionsOutput.appendChild(seetohImage);
