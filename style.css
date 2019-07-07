@@ -1,4 +1,8 @@
 /*the entire questions div area (pic and text*/
+#questions-output {
+	text-align: center;
+}
+
 #questions-output:after {
   content: "";
   display: table;
@@ -14,6 +18,7 @@
 
 /*displays question choices*/
 #question-box {
+	text-align: center;
 }
 
 /*targets only questions as they are displayed in the question box*/
@@ -21,9 +26,14 @@
 	font-size: 20px;
 }
 
+/*question selection box*/
+#input {
+}
+
 /*displays all chosen hints*/
 #hint-box {
 	background-color: pink;
+	text-align: center;
 }
 
 #cards-output {

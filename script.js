@@ -393,7 +393,7 @@ function createHintArea() {
     questionBox.id = 'question-box';
     var hintsDisplay = document.createElement('p');
     hintsDisplay.id = ('question-choice-display');
-    hintsDisplay.innerHTML = `What would you like to ask? <span class ="question"> 1. ${questionOne.question}</span> or <span class ="question">2. ${questionTwo.question}</span>`
+    hintsDisplay.innerHTML = `What would you like to ask? <br><br><span class ="question"> 1. ${questionOne.question}</span><br> or <br><span class ="question">2. ${questionTwo.question}</span>`
     questionBox.appendChild(hintsDisplay);
 
     var input = document.createElement("input");
@@ -428,9 +428,6 @@ function createFoodCards() {
         var foodImage = document.createElement('img');
         foodImage.className = 'food-photo';
         foodImage.src = startingDishes[i].image;
-        $('.food-photo').on('click', () => {
-        $(event.target).toggleClass('hide');
-        })
 
         var foodName = document.createElement("p");
         foodName.innerHTML = startingDishes[i].name;
@@ -450,6 +447,9 @@ function createFoodCards() {
         foodCard.appendChild(selectButton);
         cardsOutput.appendChild(foodCard);
     }
+        $('.food-photo').on('click', () => {
+        $(event.target).toggleClass('hide');
+        })
 };
 createHintArea();
 createFoodCards();
