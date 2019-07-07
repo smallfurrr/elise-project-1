@@ -12,9 +12,13 @@
 	float: left;
 }
 
-/*displays hint choices*/
+/*displays question choices*/
 #question-box {
+}
 
+/*targets only questions as they are displayed in the question box*/
+.question {
+	font-size: 20px;
 }
 
 /*displays all chosen hints*/

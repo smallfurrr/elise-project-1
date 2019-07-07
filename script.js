@@ -7,6 +7,9 @@ let dishServe = null;
 let dishColor = null;
 let dishType = null;
 
+let questionOne = null;
+let questionTwo = null;
+
 const startingDishes = [
         {
             name: "Chicken Rice",
@@ -208,8 +211,8 @@ const startingDishes = [
 ];
 
 //start of game - get random dish
-var getRandomDish = function(){
-    var randomIndex = Math.floor(Math.random() * 19);
+function getRandomDish() {
+    var randomIndex = Math.floor(Math.random() * 18); //is this correct if i have 18 objects (so index to 17)
     console.log(randomIndex);
 
     dishName = startingDishes[randomIndex].name;
@@ -228,7 +231,6 @@ var getRandomDish = function(){
     // console.log(dishColor);
     // console.log(dishType);
 };
-
 getRandomDish();
 
    // var selectHint = function {
@@ -269,10 +271,60 @@ let questions = [
     }
 ];
 
+//create clone of questions array that can be edited without affecting original
 let questionsClone = JSON.parse(JSON.stringify(questions));
-console.log(questionsClone);
+// console.log(questionsClone);
 
+//creates first 2 questions - rename if reusing for all
+function getStartingHints() {
+    //generating two random numbers to get an index from existing questionsClone objects
+    let x = Math.floor(Math.random()* questionsClone.length);
+    let y = Math.floor(Math.random()* questionsClone.length);
+
+    while (x === y) {
+        x = Math.floor(Math.random()* questionsClone.length);
+    }
+
+    // console.log(x);
+    // console.log(y);
+
+    //saving 2 question objects from questionsClone as the 2 current display questions
+    questionOne = questionsClone[x];
+    questionTwo = questionsClone[y];
+
+    // console.log(questionOne);
+    // console.log(questionTwo);
+};
+getStartingHints();
+
+//action that happens when player enters "1" or "2" to select hint
+function selectHint() {
+    //must ensure that displayedQuestions array is accessible to function
+    const input = document.getElementById('input');
+
+    //what user actually typed in
+    let userInput = parseInt(input.value);
+    console.log(userInput);
+
+    //index in displayedQuestions according to what user chose
+    let selectedIndex = userInput - 1;
+    console.log(selectedIndex);
+
+    //this will the selected question
+    // displayedQuestions[selectedIndex]
+
+
+}
+
+//dynamically creates the game area based on the pre-calculated values above
 function createHintArea() {
+    //place the 2 random question-answer objects in their own array
+    let displayedQuestions = [];
+    displayedQuestions.push(questionOne);
+    displayedQuestions.push(questionTwo);
+
+    console.log(displayedQuestions);
+
     var questionsOutput = document.getElementById('questions-output');
 
     var seetohImage = document.createElement('img');
@@ -282,18 +334,18 @@ function createHintArea() {
     var questionBox = document.createElement('div');
     questionBox.id = 'question-box';
     var startingHints = document.createElement('p');
-    startingHints.innerText = 'This is where the first 2 questions will go!'
+    startingHints.innerHTML = `What would you like to ask? <span class ="question"> 1. ${questionOne.question}</span> or <span class ="question">2. ${questionTwo.question}</span>`
     questionBox.appendChild(startingHints);
 
     var input = document.createElement("input");
     input.type = "text";
     input.id = "input";
 
-    // input.addEventListener("keydown", event => {
-    // if (event.keyCode == 13) {
-    //     selectHint();
-    //     }
-    // });
+    input.addEventListener("keydown", event => {
+    if (event.keyCode == 13) {
+        selectHint();
+        }
+    });
 
     var hintBox = document.createElement('div');
     hintBox.id = 'hint-box';
@@ -327,6 +379,7 @@ function createFoodCards() {
         selectButton.id = i;
         selectButton.value = i;
         //selectButton.addEventListener('click', checkForWin);
+        //also add event listener to each food pic to add toggle img feature
 
         foodCard.appendChild(foodImage);
         foodCard.appendChild(foodName);
@@ -334,6 +387,5 @@ function createFoodCards() {
         cardsOutput.appendChild(foodCard);
     }
 };
-
 createHintArea();
 createFoodCards();
