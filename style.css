@@ -29,7 +29,7 @@
 #cards-output {
 	margin: 0 auto;
 	text-align: center;
-	border: 0.5px solid black;
+	/*border: 0.5px solid black;*/
 }
 
 .food-card {
@@ -38,7 +38,7 @@
 	text-align: center;
 }
 
-.food-card img {
+.food-photo {
 	max-width: 200px;
 	height: 150px;
 }
@@ -62,6 +62,5 @@
 }
 
 .hide {
-	/*display: none;*/
-	/*use this for the food cards instead*/
+	content:url("images/card-backs/back.jpeg");
 }

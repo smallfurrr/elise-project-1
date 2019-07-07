@@ -14,7 +14,8 @@ let dishType = null;
 let questionOne = null;
 let questionTwo = null;
 
-let moveCounter = 0;;
+let randomIndex = null;
+let moveCounter = 0;
 
 const startingDishes = [
         {
@@ -218,7 +219,7 @@ const startingDishes = [
 
 //start of game - get random dish
 function getRandomDish() {
-    var randomIndex = Math.floor(Math.random() * 18); //is this correct if i have 18 objects (so index to 17)
+    randomIndex = Math.floor(Math.random() * 18);
     console.log(randomIndex);
 
     dishName = startingDishes[randomIndex].name;
@@ -252,7 +253,7 @@ let questions = [
     },
 
     {
-        question: "Is this dish best eaten hot or cold?",
+        question: "Is this dish best eaten warm or cold?",
         answer: `${dishTemp}`
     },
 
@@ -272,7 +273,7 @@ let questions = [
     },
 
     {
-        question: "Is this dish usually eaten as a snack/dessert or a main meal? Although everything can be a snack if you just believe in yourself!",
+        question: "Is this dish usually eaten as a snack/dessert or a main meal? (Although everything can be a snack if you just believe in yourself!)",
         answer: `${dishType}`
     }
 ];
@@ -283,7 +284,13 @@ let questionsClone = JSON.parse(JSON.stringify(questions));
 
 //win checking function
 function checkForWin() {
-
+    if (this.id == randomIndex) {
+        console.log("issa win!");
+        // CREATE AMAZING WIN SCENARIO
+    } else {
+        console.log("issa not a win..");
+        // CREATE SADNESS MAX LOSING SCENARIO
+    }
 };
 
 //creates 2 random questions
@@ -320,7 +327,6 @@ function selectHint() {
         //show select buttons
         //switch seetoh pic hahahaha
         //display countdown??
-
         $('.select-btn').show();
     }
 
@@ -420,7 +426,11 @@ function createFoodCards() {
         foodCard.className = 'food-card';
 
         var foodImage = document.createElement('img');
+        foodImage.className = 'food-photo';
         foodImage.src = startingDishes[i].image;
+        $('.food-photo').on('click', () => {
+        $(event.target).toggleClass('hide');
+        })
 
         var foodName = document.createElement("p");
         foodName.innerHTML = startingDishes[i].name;
@@ -432,7 +442,7 @@ function createFoodCards() {
         selectButton.innerText = "Select";
         selectButton.id = i;
         selectButton.value = i;
-        //selectButton.addEventListener('click', checkForWin);
+        selectButton.addEventListener('click', checkForWin);
         //also add event listener to each food pic to add toggle img feature
 
         foodCard.appendChild(foodImage);
