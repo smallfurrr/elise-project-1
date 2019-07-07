@@ -1,5 +1,5 @@
 $(document).ready(() => {
-$('.food-card').corner("sc:#009");
+$('.food-card').corner('dog');
 });
 
 //necessary global variables
@@ -13,6 +13,8 @@ let dishType = null;
 
 let questionOne = null;
 let questionTwo = null;
+
+let moveCounter = 0;;
 
 const startingDishes = [
         {
@@ -279,6 +281,11 @@ let questions = [
 let questionsClone = JSON.parse(JSON.stringify(questions));
 // console.log(questionsClone);
 
+//win checking function
+function checkForWin() {
+
+};
+
 //creates 2 random questions
 function generateHints() {
     //generate two random numbers to get an index from existing questionsClone objects
@@ -303,6 +310,20 @@ generateHints();
 
 //action that happens when player enters "1" or "2" to select hint
 function selectHint() {
+    //keeping track of rounds. once 3 rounds, show submit and check for win
+    moveCounter += 1;
+
+    console.log(moveCounter);
+
+    if (moveCounter === 3) {
+        //clear #question-box and change inner html to you gotta choose woot
+        //show select buttons
+        //switch seetoh pic hahahaha
+        //display countdown??
+
+        $('.select-btn').show();
+    }
+
     //place the 2 random question-answer objects in their own array
     //make sure that displayedQuestions empties each time selectHint() runs
     let displayedQuestions = [];
@@ -406,7 +427,7 @@ function createFoodCards() {
 
         var selectButton = document.createElement('button');
         selectButton.className = 'select-btn';
-        selectButton.className = 'hide';
+        // selectButton.className = 'hide';
         selectButton.type = 'submit';
         selectButton.innerText = "Select";
         selectButton.id = i;
