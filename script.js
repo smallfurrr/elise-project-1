@@ -1,5 +1,5 @@
 $(document).ready(() => {
-// $('.food-card').corner('dog');
+$("#ex1").modal('show');
 $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
 $('.hint').corner();
 });

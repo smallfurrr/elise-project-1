@@ -11,19 +11,40 @@ font-style: normal;
 }
 @font-face {
 font-family: 'Geomanist';
-src: url('fonts/Geomanist-Light');
+src: url('fonts/Geomanist-Light.woff');
 font-weight: 200;
 font-style: normal;
  }
 @font-face {
 font-family: 'Geomanist';
-src: url('fonts/Geomanist-Regular');
+src: url('fonts/Geomanist-Regular.woff');
 font-weight: 500;
 font-style: normal;
 }
 
 body {
 	padding: 10px;
+}
+
+.modal {
+font-family: 'Geomanist', sans serif;
+font-size: 15px;
+text-align: center;
+}
+
+.modal img {
+	max-height: 200px;
+}
+
+.modal a.close-modal {
+    top: 8.5px;
+    right: 8.5px;
+}
+
+.modal a {
+	color: #CA4833 !important;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 /*the entire questions div area (pic and text*/
@@ -89,7 +110,7 @@ body {
 .question {
 	font-family: 'Geomanist', sans serif;
 	color: white;
-	font-size: 17px;
+	font-size: 20px;
 }
 
 /*question selection input box*/
@@ -103,6 +124,23 @@ body {
 
 ::placeholder {
 	color: white;
+	font-family: 'Geomanist', sans serif;
+	font-weight: lighter;
+	font-size: 18px;
+	letter-spacing: 3px;
+}
+
+#input:focus::-webkit-input-placeholder {
+	color:transparent;
+}
+#input:focus:-moz-placeholder {
+	color:transparent;
+}
+#input:focus::-moz-placeholder {
+	color:transparent;
+}
+#input:focus:-ms-input-placeholder {
+	color:transparent;
 }
 
 *:focus {
