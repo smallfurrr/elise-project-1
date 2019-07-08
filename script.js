@@ -41,14 +41,36 @@ const startingDishes = [
         },
 
         {
-            name: "Hokkien Mee",
-            ethnicity: "Chinese",
+            name: "Roti Prata",
+            ethnicity: "Indian",
             temperature: "Warm",
-            base: "Noodles",
+            base: "Others", //trigger base special statement
             servingDish: "Plate",
-            color: "Yellow",
+            color: "Brown",
             dishType: "Meal",
-            image:"images/foodphotoscrop/hokkien-mee.jpeg"
+            image:"images/foodphotoscrop/roti-prata.jpeg"
+        },
+
+        {
+            name: "Pandan Cake",
+            ethnicity: "Others",
+            temperature: "Warm",
+            base: "Others", //trigger base special statement
+            servingDish: "Plate",
+            color: "Green",
+            dishType: "Snack or Dessert",
+            image:"images/foodphotoscrop/pandan-cake.jpeg"
+        },
+
+        {
+            name: "Curry Puff",
+            ethnicity: "Others",
+            temperature: "Warm",
+            base: "Others", //trigger base special statement
+            servingDish: "Others", //trigger serving dish special statement
+            color: "Brown",
+            dishType: "Snack or Dessert",
+            image:"images/foodphotoscrop/curry-puff.jpeg"
         },
 
         {
@@ -74,6 +96,17 @@ const startingDishes = [
         },
 
         {
+            name: "Hokkien Mee",
+            ethnicity: "Chinese",
+            temperature: "Warm",
+            base: "Noodles",
+            servingDish: "Plate",
+            color: "Yellow",
+            dishType: "Meal",
+            image:"images/foodphotoscrop/hokkien-mee.jpeg"
+        },
+
+        {
             name: "Mee Rebus",
             ethnicity: "Malay",
             temperature: "Warm",
@@ -85,14 +118,14 @@ const startingDishes = [
         },
 
         {
-            name: "Beef Rendang",
-            ethnicity: "Malay",
-            temperature: "Warm",
-            base: "Meat",
+            name: "Chendol",
+            ethnicity: "Others",
+            temperature: "Cold",
+            base: "Others", //trigger base special statement
             servingDish: "Bowl",
-            color: "Brown",
-            dishType: "Meal",
-            image:"images/foodphotoscrop/beef-rendang.jpeg"
+            color: "Green",
+            dishType: "Snack or Dessert",
+            image:"images/foodphotoscrop/chendol.jpeg"
         },
 
         {
@@ -118,17 +151,6 @@ const startingDishes = [
         },
 
         {
-            name: "Roti Prata",
-            ethnicity: "Indian",
-            temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Plate",
-            color: "Brown",
-            dishType: "Meal",
-            image:"images/foodphotoscrop/roti-prata.jpeg"
-        },
-
-        {
             name: "Fish Head Curry",
             ethnicity: "Indian",
             temperature: "Warm",
@@ -137,6 +159,28 @@ const startingDishes = [
             color: "Red",
             dishType: "Meal",
             image:"images/foodphotoscrop/fish-head-curry.jpeg"
+        },
+
+        {
+            name: "Beef Rendang",
+            ethnicity: "Malay",
+            temperature: "Warm",
+            base: "Meat",
+            servingDish: "Bowl",
+            color: "Brown",
+            dishType: "Meal",
+            image:"images/foodphotoscrop/beef-rendang.jpeg"
+        },
+
+        {
+            name: "Ice Kachang",
+            ethnicity: "Others", //hmm hmm hmm
+            temperature: "Cold",
+            base: "Others", //trigger base special statement
+            servingDish: "Bowl",
+            color: "Red",
+            dishType: "Snack or Dessert",
+            image:"images/foodphotoscrop/ice-kachang.jpeg"
         },
 
         {
@@ -159,50 +203,6 @@ const startingDishes = [
             color: "Brown",
             dishType: "Snack or Dessert",
             image:"images/foodphotoscrop/goreng-pisang.jpeg"
-        },
-
-        {
-            name: "Chendol",
-            ethnicity: "Others",
-            temperature: "Cold",
-            base: "Others", //trigger base special statement
-            servingDish: "Bowl",
-            color: "Green",
-            dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/chendol.jpeg"
-        },
-
-        {
-            name: "Ice Kachang",
-            ethnicity: "Others", //hmm hmm hmm
-            temperature: "Cold",
-            base: "Others", //trigger base special statement
-            servingDish: "Bowl",
-            color: "Red",
-            dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/ice-kachang.jpeg"
-        },
-
-        {
-            name: "Pandan Cake",
-            ethnicity: "Others",
-            temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Plate",
-            color: "Green",
-            dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/pandan-cake.jpeg"
-        },
-
-        {
-            name: "Curry Puff",
-            ethnicity: "Others",
-            temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Others", //trigger serving dish special statement
-            color: "Brown",
-            dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/curry-puff.jpeg"
         },
 
         {
@@ -285,10 +285,10 @@ let questionsClone = JSON.parse(JSON.stringify(questions));
 //win checking function
 function checkForWin() {
     if (this.id == randomIndex) {
-        console.log("issa win!");
+        alert("issa win!");
         // CREATE AMAZING WIN SCENARIO
     } else {
-        console.log("issa not a win..");
+        alert("issa not a win..");
         // CREATE SADNESS MAX LOSING SCENARIO
     }
 };
