@@ -1,5 +1,7 @@
 $(document).ready(() => {
-$('.food-card').corner('dog');
+// $('.food-card').corner('dog');
+$('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
+$('.hint').corner();
 });
 
 //necessary global variables
@@ -44,7 +46,7 @@ const startingDishes = [
             name: "Roti Prata",
             ethnicity: "Indian",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
+            base: "None of the above",
             servingDish: "Plate",
             color: "Brown",
             dishType: "Meal",
@@ -53,9 +55,9 @@ const startingDishes = [
 
         {
             name: "Pandan Cake",
-            ethnicity: "Others",
+            ethnicity: "None in particular",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
+            base: "None of the above",
             servingDish: "Plate",
             color: "Green",
             dishType: "Snack or Dessert",
@@ -64,10 +66,10 @@ const startingDishes = [
 
         {
             name: "Curry Puff",
-            ethnicity: "Others",
+            ethnicity: "None in particular",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Others", //trigger serving dish special statement
+            base: "None of the above",
+            servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
             image:"images/foodphotoscrop/curry-puff.jpeg"
@@ -119,9 +121,9 @@ const startingDishes = [
 
         {
             name: "Chendol",
-            ethnicity: "Others",
+            ethnicity: "None in particular",
             temperature: "Cold",
-            base: "Others", //trigger base special statement
+            base: "None of the above",
             servingDish: "Bowl",
             color: "Green",
             dishType: "Snack or Dessert",
@@ -133,7 +135,7 @@ const startingDishes = [
             ethnicity: "Malay",
             temperature: "Warm",
             base: "Meat",
-            servingDish: "Others", //trigger serving dish special statement
+            servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Meal",
             image:"images/foodphotoscrop/satay.jpeg"
@@ -174,9 +176,9 @@ const startingDishes = [
 
         {
             name: "Ice Kachang",
-            ethnicity: "Others", //hmm hmm hmm
+            ethnicity: "None in particular",
             temperature: "Cold",
-            base: "Others", //trigger base special statement
+            base: "None of the above",
             servingDish: "Bowl",
             color: "Red",
             dishType: "Snack or Dessert",
@@ -198,8 +200,8 @@ const startingDishes = [
             name: "Goreng Pisang",
             ethnicity: "Malay",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Others", //trigger serving dish special statement
+            base: "None of the above",
+            servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
             image:"images/foodphotoscrop/goreng-pisang.jpeg"
@@ -209,8 +211,8 @@ const startingDishes = [
             name: "Vadai",
             ethnicity: "Indian",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Others", //trigger serving dish special statement
+            base: "None of the above",
+            servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
             image:"images/foodphotoscrop/vadai.jpeg"
@@ -258,12 +260,12 @@ let questions = [
     },
 
     {
-        question: "Is this dish noodle, rice, or meat-based? Could be none of the above!",
+        question: "Is this dish noodle, rice, or meat-based?",
         answer: `${dishBase}`
     },
 
     {
-        question: "What does this dish usually come served in? (Hint: Cutlery is not always involved!)",
+        question: "What does this dish USUALLY come served in?",
         answer: `${dishServe}`
     },
 
@@ -273,7 +275,7 @@ let questions = [
     },
 
     {
-        question: "Is this dish usually eaten as a snack/dessert or a main meal? (Although everything can be a snack if you just believe in yourself!)",
+        question: "Is this dish USUALLY eaten as a snack/dessert or a main meal?",
         answer: `${dishType}`
     }
 ];
@@ -325,7 +327,6 @@ function selectHint() {
     if (moveCounter === 3) {
         //clear #question-box and change inner html to you gotta choose woot
         //show select buttons
-        //switch seetoh pic hahahaha
         //display countdown??
         $('.select-btn').show();
     }
@@ -387,20 +388,13 @@ function selectHint() {
 function createHintArea() {
     var questionsOutput = document.getElementById('questions-output');
 
-    var seetohImage = document.createElement('img');
-    seetohImage.id = 'seetoh';
-    seetohImage.src = 'images/seetoh/pic5.jpeg';
-
-    var questionBox = document.createElement('div');
-    questionBox.id = 'question-box';
     var hintsDisplay = document.createElement('p');
     hintsDisplay.id = ('question-choice-display');
-    hintsDisplay.innerHTML = `What would you like to ask? <br><br><span class ="question"> 1. ${questionOne.question}</span><br> or <br><span class ="question">2. ${questionTwo.question}</span>`
-    questionBox.appendChild(hintsDisplay);
+    hintsDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> OR <br><span class ="question">2. ${questionTwo.question}</span>`
 
-    var input = document.createElement("input");
-    input.type = "text";
-    input.id = "input";
+    // var input = document.createElement("input");
+    // input.type = "text";
+    // input.id = "input";
 
     input.addEventListener("keydown", event => {
     if (event.keyCode == 13) {
@@ -408,16 +402,10 @@ function createHintArea() {
         }
     });
 
-    var hintBox = document.createElement('div');
-    hintBox.id = 'hint-box';
-    var chosenHints = document.createElement('p');
-    chosenHints.innerText = 'These are your chosen hints!'
-    hintBox.appendChild(chosenHints);
+    // now making 3 diff hint boxes in the html itself and populating with DOM so meanssss i have to do it in the selectHint() function
 
-    questionsOutput.appendChild(seetohImage);
-    questionsOutput.appendChild(questionBox);
-    questionsOutput.appendChild(input);
-    questionsOutput.appendChild(hintBox);
+    questionsOutput.appendChild(hintsDisplay);
+    // questionsOutput.appendChild(input);
 }
 
 function createFoodCards() {

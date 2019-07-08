@@ -22,47 +22,111 @@ font-weight: 500;
 font-style: normal;
 }
 
+body {
+	padding: 10px;
+}
+
 /*the entire questions div area (pic and text*/
 #questions-output {
+	/*background-color: #477064;*/
+}
+
+.genie {
+	background-image: url('images/icon/1.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	min-height: 100px;
+	margin-right: 5px;
+}
+
+.speech-bubble {
+	position: relative;
+	background: #CA4833;
+	border-radius: .4em;
 	text-align: center;
 }
 
-#questions-output:after {
-  content: "";
-  display: table;
-  clear: both;
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-right-color: #CA4833;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -7.5px;
+	margin-left: -15px;
 }
 
-/*img of seetoh*/
-#seetoh {
-	max-height: 200px;
-	margin: 10px;
-	float: left;
+/*"What would you like to know*/
+.speech-bubble h2 {
+	/*font-family: 'Atlas', sans serif;*/
+	font-family: 'Geomanist', sans serif;
+	font-size: 18px;
+	font-weight: lighter;
+	color: white;
+	margin: 7px 0;
+	letter-spacing: 5px;
 }
 
-/*displays question choices*/
-#question-box {
-	text-align: center;
+/*speech bubble*/
+#questions-output {
+
 }
 
-/*targets only questions as they are displayed in the question box*/
+/*ALL the text in the speech bubble*/
+#question-choice-display {
+	font-family: 'Geomanist', sans serif;
+	color: black;
+	font-size: 12px;
+}
+
+/*JUST the questions in the speech bubble*/
 .question {
-	font-size: 20px;
+	font-family: 'Geomanist', sans serif;
+	color: white;
+	font-size: 16px;
 }
 
 /*question selection box*/
 #input {
 }
 
-/*displays all chosen hints*/
-#hint-box {
-	background-color: pink;
-	text-align: center;
+#questions-bottom {
+	display: flex;
+}
+
+/*new 3 hint boxes*/
+.hint{
+  border: 2px solid #CA4833;
+  flex:1;
+  margin:20px 10px 0px 10px;
+  text-align: center;
+}
+
+.hint h2 {
+	font-family: 'Atlas', sans serif;
+	font-size: 20px;
+	width: 100%;
+	padding: 5px 15px 5px 15px;
+	color: black;
+	/*color: white;*/
+	/*background-color: #CA4833;*/
+}
+
+.hint p {
+	font-family: 'Geomanist', sans serif;
+	font-weight: normal;
+	font-size: 14px;
 }
 
 #cards-output {
 	/*background-image: url('images/backgrounds/2.jpg');*/
 	background-size: contain;
+	padding: 5px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -76,14 +140,18 @@ font-style: normal;
 .food-photo {
 	max-width: 200px;
 	height: 150px;
+	/*box-shadow: 6px 9px 11px -5px rgba(102,102,102,0.67);*/
+	box-shadow: inset -1px -12px 36px 6px rgba(112,112,112,0.69);
 }
 
 .food-card p {
-	font-family: 'Geomanist-Regular', sans serif;
+	font-family: 'Geomanist', sans serif;
 	font-size: 15px;
 	text-align: center;
-	width: 100%;
-	margin: 0;
+	text-decoration: none;
+  border-bottom: 2px dashed #F3A95E;
+	width: 80%;
+	margin: 5px;
 	position: absolute;
   left: 50%;
   transform: translateX(-50%)
