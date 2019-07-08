@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'Atlas';
+  src: url('fonts/atlas.woff');
+}
+
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Book.woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Light');
+font-weight: 200;
+font-style: normal;
+ }
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Regular');
+font-weight: 500;
+font-style: normal;
+}
+
 /*the entire questions div area (pic and text*/
 #questions-output {
 	text-align: center;
@@ -37,9 +61,10 @@
 }
 
 #cards-output {
+	/*background-image: url('images/backgrounds/2.jpg');*/
+	background-size: contain;
 	margin: 0 auto;
 	text-align: center;
-	/*border: 0.5px solid black;*/
 }
 
 .food-card {
@@ -54,6 +79,7 @@
 }
 
 .food-card p {
+	font-family: 'Geomanist-Regular', sans serif;
 	font-size: 15px;
 	text-align: center;
 	width: 100%;

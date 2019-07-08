@@ -51,6 +51,12 @@ h1 {
 	font-size: 30px;
 }
 
+h2 {
+	color: black;
+	font-family: 'Geomanist-Light', sans serif;
+	font-size: 20px;
+}
+
 ul {
 	font-family: "Geomanist-Light", sans serif;
 	font-size: 18px;
@@ -105,4 +111,7 @@ li {
 	top:1px;
 }
 
-/*background-attachment: fixed*/
+a {
+	color:white;
+  text-decoration: none !important;
+}

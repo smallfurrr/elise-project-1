@@ -348,6 +348,8 @@ function selectHint() {
     let selectedIndex = userInput - 1;
     // console.log(selectedIndex);
 
+    //now needs to target 3 individual hint boxes, so i guess like... an if-else statement
+
     //targeting the hint box
     const hintBox = document.getElementById('hint-box');
 
