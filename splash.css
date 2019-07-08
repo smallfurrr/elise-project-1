@@ -40,7 +40,27 @@ body {
 
 .instructions-box {
 	min-height: 400px;
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.85);
+	text-align: center;
+	padding: 15px;
+}
+
+h1 {
+	color: white;
+	font-family: 'Atlas';
+	font-size: 30px;
+}
+
+ul {
+	font-family: "Geomanist-Light", sans serif;
+	font-size: 18px;
+	color: white;
+	text-align: center;
+	list-style-type: none;
+}
+
+li {
+	padding-right: 30px;
 }
 
 .start-btn {
@@ -65,6 +85,8 @@ body {
 	font-family:Arial;
 	font-size:17px;
 	padding:7px 25px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #810e05;
 }
