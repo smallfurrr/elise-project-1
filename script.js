@@ -322,7 +322,7 @@ function selectHint() {
     //keeping track of rounds. once 3 rounds, show submit and check for win
     moveCounter += 1;
 
-    console.log(moveCounter);
+    // console.log(moveCounter);
 
     if (moveCounter === 3) {
         //clear #question-box and change inner html to you gotta choose woot
@@ -349,17 +349,23 @@ function selectHint() {
     let selectedIndex = userInput - 1;
     // console.log(selectedIndex);
 
-    //now needs to target 3 individual hint boxes, so i guess like... an if-else statement
-
-    //targeting the hint box
-    const hintBox = document.getElementById('hint-box');
+    //targeting the hint boxes
+    const hintBox1 = document.getElementById('hint-1');
+    const hintBox2 = document.getElementById('hint-2');
+    const hintBox3 = document.getElementById('hint-3');
 
     //formatting chosen hint and answer
     let chosenHint = document.createElement('p');
-    chosenHint.innerHTML = `${displayedQuestions[selectedIndex].question}<br>${displayedQuestions[selectedIndex].answer}`
+    chosenHint.innerHTML = `<span class= "hint-display-question">${displayedQuestions[selectedIndex].question}</span><br><span class="hint-display-answer">${displayedQuestions[selectedIndex].answer}</span>`
 
-    //move selected hint to hint box (make sure not overwriting previous ones)
-    hintBox.appendChild(chosenHint);
+    //move selected hint to relevant hint box based on move counter
+    if (moveCounter === 1) {
+        hintBox1.appendChild(chosenHint);
+    } else if (moveCounter === 2) {
+        hintBox2.appendChild(chosenHint);
+    } else if (moveCounter === 3) {
+        hintBox3.appendChild(chosenHint);
+    };
 
     //remove selected question from questionsClone
     if (userInput === 1) {
@@ -381,7 +387,7 @@ function selectHint() {
 
     //targeting the <p> element within question-box, to dynamically reflect new question choices
     const choiceDisplay = document.getElementById('question-choice-display');
-    choiceDisplay.innerHTML = `What would you like to ask? <span class ="question"> 1. ${questionOne.question}</span> or <span class ="question">2. ${questionTwo.question}</span>`
+    choiceDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> or <br><span class ="question">2. ${questionTwo.question}</span>`
 }
 
 //dynamically creates the game area based on the pre-calculated values above
@@ -392,9 +398,10 @@ function createHintArea() {
     hintsDisplay.id = ('question-choice-display');
     hintsDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> OR <br><span class ="question">2. ${questionTwo.question}</span>`
 
-    // var input = document.createElement("input");
-    // input.type = "text";
-    // input.id = "input";
+    var input = document.createElement("input");
+    input.type = "text";
+    input.id = "input";
+    input.placeholder = "Pick 1 or 2";
 
     input.addEventListener("keydown", event => {
     if (event.keyCode == 13) {
@@ -405,7 +412,7 @@ function createHintArea() {
     // now making 3 diff hint boxes in the html itself and populating with DOM so meanssss i have to do it in the selectHint() function
 
     questionsOutput.appendChild(hintsDisplay);
-    // questionsOutput.appendChild(input);
+    questionsOutput.appendChild(input);
 }
 
 function createFoodCards() {

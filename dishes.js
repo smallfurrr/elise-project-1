@@ -25,7 +25,7 @@ const startingDishes = [
             name: "Roti Prata",
             ethnicity: "Indian",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
+            base: "None of the above",
             servingDish: "Plate",
             color: "Brown",
             dishType: "Meal",
@@ -34,9 +34,9 @@ const startingDishes = [
 
         {
             name: "Pandan Cake",
-            ethnicity: "Others",
+            ethnicity: "None in particular",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
+            base: "None of the above",
             servingDish: "Plate",
             color: "Green",
             dishType: "Snack or Dessert",
@@ -45,10 +45,10 @@ const startingDishes = [
 
         {
             name: "Curry Puff",
-            ethnicity: "Others",
+            ethnicity: "None in particular",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Others", //trigger serving dish special statement
+            base: "None of the above",
+            servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
             image:"images/foodphotoscrop/curry-puff.jpeg"
@@ -100,9 +100,9 @@ const startingDishes = [
 
         {
             name: "Chendol",
-            ethnicity: "Others",
+            ethnicity: "None in particular",
             temperature: "Cold",
-            base: "Others", //trigger base special statement
+            base: "None of the above",
             servingDish: "Bowl",
             color: "Green",
             dishType: "Snack or Dessert",
@@ -114,7 +114,7 @@ const startingDishes = [
             ethnicity: "Malay",
             temperature: "Warm",
             base: "Meat",
-            servingDish: "Others", //trigger serving dish special statement
+            servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Meal",
             image:"images/foodphotoscrop/satay.jpeg"
@@ -155,9 +155,9 @@ const startingDishes = [
 
         {
             name: "Ice Kachang",
-            ethnicity: "Others", //hmm hmm hmm
+            ethnicity: "None in particular",
             temperature: "Cold",
-            base: "Others", //trigger base special statement
+            base: "None of the above",
             servingDish: "Bowl",
             color: "Red",
             dishType: "Snack or Dessert",
@@ -179,8 +179,8 @@ const startingDishes = [
             name: "Goreng Pisang",
             ethnicity: "Malay",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Others", //trigger serving dish special statement
+            base: "None of the above",
+            servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
             image:"images/foodphotoscrop/goreng-pisang.jpeg"
@@ -190,8 +190,8 @@ const startingDishes = [
             name: "Vadai",
             ethnicity: "Indian",
             temperature: "Warm",
-            base: "Others", //trigger base special statement
-            servingDish: "Others", //trigger serving dish special statement
+            base: "None of the above",
+            servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
             image:"images/foodphotoscrop/vadai.jpeg"

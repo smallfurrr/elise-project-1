@@ -82,24 +82,38 @@ body {
 	font-family: 'Geomanist', sans serif;
 	color: black;
 	font-size: 12px;
+	margin-top: 20px;
 }
 
 /*JUST the questions in the speech bubble*/
 .question {
 	font-family: 'Geomanist', sans serif;
 	color: white;
-	font-size: 16px;
+	font-size: 17px;
 }
 
-/*question selection box*/
+/*question selection input box*/
 #input {
+	text-align: center;
+	background: transparent;
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  margin-bottom: 10px;
+}
+
+::placeholder {
+	color: white;
+}
+
+*:focus {
+    outline: none;
 }
 
 #questions-bottom {
 	display: flex;
 }
 
-/*new 3 hint boxes*/
+/*all 3 hint boxes*/
 .hint{
   border: 2px solid #CA4833;
   flex:1;
@@ -120,7 +134,15 @@ body {
 .hint p {
 	font-family: 'Geomanist', sans serif;
 	font-weight: normal;
-	font-size: 14px;
+	font-size: 16px;
+}
+
+.hint-display-question {
+
+}
+
+.hint-display-answer {
+	color: #CA4833;
 }
 
 #cards-output {
@@ -158,9 +180,10 @@ body {
 }
 
 .select-btn {
+	font-size: 10px;
 	display: none;
 	position: absolute;
-	bottom: -40px;
+	bottom: -55px;
   left: 50%;
   transform: translateX(-50%);
 }
