@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'Atlas';
+  src: url('fonts/atlas.woff');
+}
+
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Book.woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Light');
+font-weight: 200;
+font-style: normal;
+ }
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Regular');
+font-weight: 500;
+font-style: normal;
+}
+
+body {
+	background-image: url('images/splash-final/background.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	padding: 50px;
+}
+
+.container {
+	margin-top: 100px;
+}
+
+.logo {
+	background-image: url('images/splash-final/logo.png');
+	background-repeat: no-repeat;
+	min-height: 400px;
+}
+
+.instructions-box {
+	min-height: 400px;
+	background-color: rgba(0,0,0,0.87);
+	text-align: center;
+	padding: 15px;
+}
+
+h1 {
+	color: white;
+	font-family: 'Atlas';
+	font-size: 30px;
+}
+
+h2 {
+	color: black;
+	font-family: 'Geomanist-Light', sans serif;
+	font-size: 20px;
+}
+
+ul {
+	font-family: "Geomanist-Light", sans serif;
+	font-size: 18px;
+	color: white;
+	text-align: center;
+	list-style-type: none;
+}
+
+li {
+	padding-right: 30px;
+}
+
+.start-btn {
+	-moz-box-shadow: 3px 4px 0px 0px #8a2a21;
+	-webkit-box-shadow: 3px 4px 0px 0px #8a2a21;
+	box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24437));
+	background:-moz-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+	background:-webkit-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+	background:-o-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+	background:-ms-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24437',GradientType=0);
+	background-color:#c62d1f;
+	-moz-border-radius:18px;
+	-webkit-border-radius:18px;
+	border-radius:10px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#FFFFFF;
+	font-family:"Geomanist", sans serif;
+  font-size: 35px;
+  padding: 10px 25px 0px 25px;
+  letter-spacing: 3px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 197px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.start-btn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24437), color-stop(1, #c62d1f));
+	background:-moz-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+	background:-webkit-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+	background:-o-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+	background:-ms-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24437', endColorstr='#c62d1f',GradientType=0);
+	background-color:#f24437;
+	color: white;
+}
+.start-btn:active {
+	position:relative;
+	top:1px;
+}
+
+a {
+	color:white !important;
+  text-decoration: none !important;
+}
