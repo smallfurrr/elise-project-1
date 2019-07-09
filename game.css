@@ -49,7 +49,6 @@ text-align: center;
 
 /*the entire questions div area (pic and text*/
 #questions-output {
-	/*background-color: #477064;*/
 }
 
 .genie {
@@ -82,7 +81,7 @@ text-align: center;
 	margin-left: -15px;
 }
 
-/*"What would you like to know*/
+/*"What would you like to know?"*/
 .speech-bubble h2 {
 	/*font-family: 'Atlas', sans serif;*/
 	font-family: 'Geomanist', sans serif;
@@ -93,9 +92,8 @@ text-align: center;
 	letter-spacing: 5px;
 }
 
-/*speech bubble*/
+/*speech bubble itself*/
 #questions-output {
-
 }
 
 /*ALL the text in the speech bubble*/
@@ -228,4 +226,29 @@ text-align: center;
 
 .hide {
 	content:url("images/card-backs/back.jpeg");
+}
+
+ #overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  cursor: pointer;
+}
+
+#overlay span {
+	font-family: "Geomanist", sans serif;
+	font-size: 90px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
 }

@@ -286,12 +286,44 @@ let questionsClone = JSON.parse(JSON.stringify(questions));
 
 //win checking function
 function checkForWin() {
+    //create win counter here
+
+    const winningTrack = new Audio('audio/winnerwinnerchickendinner.mp3');
+    const losingTrack = new Audio('audio/sadness.mp3');
+
+    const overlay = document.getElementById("overlay");
+
     if (this.id == randomIndex) {
-        alert("issa win!");
-        // CREATE AMAZING WIN SCENARIO
+        // alert("issa win!");
+        //have to close alert before audio plays
+        winningTrack.play();
+        let winningText = document.createElement('span');
+        winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}.`
+        overlay.appendChild(winningText);
+        overlay.style.display = "block";
+
+        overlay.addEventListener("click", function(event) {
+            while (overlay.firstChild) {
+                overlay.removeChild(overlay.firstChild)
+            }
+            overlay.style.display = "none";
+            // create potential to start a new game
+        });
     } else {
-        alert("issa not a win..");
-        // CREATE SADNESS MAX LOSING SCENARIO
+        // alert("issa not a win..");
+        losingTrack.play();
+        const losingText = document.createElement('span');
+        losingText.innerHTML = `YOU GUESSED WRONG.. The correct dish was ${dishName}.`
+        overlay.appendChild(losingText);
+        overlay.style.display = "block"
+
+        overlay.addEventListener("click", function(event) {
+            while (overlay.firstChild) {
+                overlay.removeChild(overlay.firstChild);
+            }
+            overlay.style.display = "none";
+            // create potential to start a new game
+        })
     }
 };
 
@@ -326,7 +358,7 @@ function selectHint() {
 
     if (moveCounter === 3) {
         //clear #question-box and change inner html to you gotta choose woot
-        //show select buttons
+        //show select buttons (done)
         //display countdown??
         $('.select-btn').show();
     }
