@@ -294,8 +294,6 @@ function checkForWin() {
     const overlay = document.getElementById("overlay");
 
     if (this.id == randomIndex) {
-        // alert("issa win!");
-        //have to close alert before audio plays
         winningTrack.play();
         let winningText = document.createElement('span');
         winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}.`
@@ -310,7 +308,6 @@ function checkForWin() {
             // create potential to start a new game
         });
     } else {
-        // alert("issa not a win..");
         losingTrack.play();
         const losingText = document.createElement('span');
         losingText.innerHTML = `YOU GUESSED WRONG.. The correct dish was ${dishName}.`
@@ -353,42 +350,30 @@ generateHints();
 function selectHint() {
     //keeping track of rounds. once 3 rounds, show submit and check for win
     moveCounter += 1;
-
     // console.log(moveCounter);
 
-    if (moveCounter === 3) {
-        //clear #question-box and change inner html to you gotta choose woot
-        //show select buttons (done)
-        //display countdown??
-        $('.select-btn').show();
-    }
-
-    //place the 2 random question-answer objects in their own array
-    //make sure that displayedQuestions empties each time selectHint() runs
+    //place the 2 random question-answer objects in their own array displayedQuestions
+    //ensure that displayedQuestions empties each time selectHint() runs
     let displayedQuestions = [];
     displayedQuestions.push(questionOne);
     displayedQuestions.push(questionTwo);
 
-    // console.log(displayedQuestions);
-
     //get what user actually typed in + clear input field
     const input = document.getElementById('input');
     let userInput = parseInt(input.value);
-    // console.log(userInput);
     input.value = "";
 
     //index in displayedQuestions according to what user chose (0 or 1)
     let selectedIndex = userInput - 1;
-    // console.log(selectedIndex);
+
+    //formatting chosen hint and answer
+    let chosenHint = document.createElement('p');
+    chosenHint.innerHTML = `<span class= "hint-display-question">${displayedQuestions[selectedIndex].question}</span><br><span class="hint-display-answer">${displayedQuestions[selectedIndex].answer}</span>`
 
     //targeting the hint boxes
     const hintBox1 = document.getElementById('hint-1');
     const hintBox2 = document.getElementById('hint-2');
     const hintBox3 = document.getElementById('hint-3');
-
-    //formatting chosen hint and answer
-    let chosenHint = document.createElement('p');
-    chosenHint.innerHTML = `<span class= "hint-display-question">${displayedQuestions[selectedIndex].question}</span><br><span class="hint-display-answer">${displayedQuestions[selectedIndex].answer}</span>`
 
     //move selected hint to relevant hint box based on move counter
     if (moveCounter === 1) {
@@ -397,6 +382,20 @@ function selectHint() {
         hintBox2.appendChild(chosenHint);
     } else if (moveCounter === 3) {
         hintBox3.appendChild(chosenHint);
+        const questionBox = document.getElementById('questions-output');
+
+        while (questionBox.firstChild) {
+                questionBox.removeChild(questionBox.firstChild)
+        };
+
+        const timeToChoose = document.createElement('p');
+        timeToChoose.innerHTML = `All hints received!<br>Pick the dish you think is right using the select buttons.`
+        questionBox.appendChild(timeToChoose);
+
+        //display countdown??
+
+        //show select buttons
+        $('.select-btn').show();
     };
 
     //remove selected question from questionsClone

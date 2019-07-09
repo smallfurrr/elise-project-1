@@ -47,10 +47,6 @@ text-align: center;
   background-color: transparent;
 }
 
-/*the entire questions div area (pic and text*/
-#questions-output {
-}
-
 .genie {
 	background-image: url('images/icon/1.png');
 	background-size: contain;
@@ -92,8 +88,12 @@ text-align: center;
 	letter-spacing: 5px;
 }
 
-/*speech bubble itself*/
-#questions-output {
+/*speech bubble itself - now only relevant for the last you need to choose part i think*/
+#questions-output p {
+	font-family: 'Geomanist', sans serif;
+	color: white;
+	font-size: 25px;
+	margin-top: 20px;
 }
 
 /*ALL the text in the speech bubble*/
