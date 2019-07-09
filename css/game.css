@@ -1,0 +1,278 @@
+@font-face {
+  font-family: 'Atlas';
+  src: url('fonts/atlas.woff');
+}
+
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Book.woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Light.woff');
+font-weight: 200;
+font-style: normal;
+ }
+@font-face {
+font-family: 'Geomanist';
+src: url('fonts/Geomanist-Regular.woff');
+font-weight: 500;
+font-style: normal;
+}
+
+body {
+	padding: 50px 10px;
+}
+
+/*@media (min-width: 992px)*/
+.offset-lg-2 {
+    margin-left: 12.666667%;
+}
+
+.modal {
+font-family: 'Geomanist', sans serif;
+font-size: 15px;
+text-align: center;
+}
+
+.modal img {
+	max-height: 200px;
+}
+
+.modal a.close-modal {
+    top: 8.5px;
+    right: 8.5px;
+}
+
+.modal a {
+	color: #CA4833 !important;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.genie {
+	background-image: url('images/icon/1.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	min-height: 100px;
+	margin-right: 5px;
+}
+
+.speech-bubble {
+	position: relative;
+	background: #CA4833;
+	border-radius: .4em;
+	text-align: center;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-right-color: #CA4833;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -7.5px;
+	margin-left: -15px;
+}
+
+/*"What would you like to know?"*/
+.speech-bubble h2 {
+	/*font-family: 'Atlas', sans serif;*/
+	font-family: 'Geomanist', sans serif;
+	font-size: 18px;
+	font-weight: lighter;
+	color: black;
+	margin: 7px 0;
+	letter-spacing: 5px;
+}
+
+/*speech bubble itself*/
+#questions-output {
+}
+
+/*ALL the text in the speech bubble*/
+#question-choice-display {
+	font-family: 'Geomanist', sans serif;
+	font-weight: lighter;
+	color: black;
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+/*JUST the questions in the speech bubble*/
+.question {
+	font-family: 'Geomanist', sans serif;
+	font-weight: normal !important;
+	color: white;
+	font-size: 20px;
+}
+
+/*question selection input box*/
+#input {
+	text-align: center;
+	background: transparent;
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  margin-bottom: 10px;
+}
+
+::placeholder {
+	color: black;
+	font-family: 'Geomanist', sans serif;
+	font-weight: lighter;
+	font-size: 18px;
+	letter-spacing: 3px;
+}
+
+#input:focus::-webkit-input-placeholder {
+	color:transparent;
+}
+#input:focus:-moz-placeholder {
+	color:transparent;
+}
+#input:focus::-moz-placeholder {
+	color:transparent;
+}
+#input:focus:-ms-input-placeholder {
+	color:transparent;
+}
+
+*:focus {
+    outline: none;
+}
+
+/*targets only the time to choose html*/
+.choose {
+	font-family: 'Geomanist', sans serif;
+	color: white;
+	font-size: 25px;
+	margin-top: 20px;
+}
+
+.hints-row {
+	text-align: center;
+}
+
+#questions-bottom {
+	display: flex;
+}
+
+.hints-header h1 {
+	/*font-family: 'Geomanist', sans serif;*/
+	font-family: 'Atlas', sans serif;
+	font-weight: normal;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+/*all 3 hint boxes*/
+.hint{
+  border: 2px solid #CA4833;
+  flex:1;
+  margin:20px 10px 0px 10px;
+  text-align: center;
+}
+
+.hint h2 {
+	font-family: 'Atlas', sans serif;
+	font-size: 15px;
+	width: 100%;
+	padding: 5px 15px 5px 15px;
+	color: black;
+}
+
+.hint p {
+	font-family: 'Geomanist', sans serif;
+	font-weight: normal;
+	font-size: 16px;
+}
+
+.hint-display-question {
+
+}
+
+.hint-display-answer {
+	color: #CA4833;
+}
+
+#cards-output {
+	/*background-image: url('images/backgrounds/2.jpg');*/
+	background-size: contain;
+	padding: 5px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.food-card {
+	display: inline-block;
+	margin: 30px 15px;
+	text-align: center;
+}
+
+.food-photo {
+	max-width: 200px;
+	height: 150px;
+	/*box-shadow: 6px 9px 11px -5px rgba(102,102,102,0.67);*/
+	box-shadow: inset -1px -12px 36px 6px rgba(112,112,112,0.69);
+}
+
+.food-card p {
+	font-family: 'Geomanist', sans serif;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
+  border-bottom: 2px dashed #F3A95E;
+	width: 80%;
+	margin: 5px;
+	position: absolute;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.select-btn {
+	font-size: 10px;
+	display: none;
+	position: absolute;
+	bottom: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Geomanist;
+  font-weight: lighter;
+  letter-spacing: 0.5px;
+}
+
+.hide {
+	content:url("images/card-backs/back.jpeg");
+}
+
+ #overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  cursor: pointer;
+}
+
+#overlay span {
+	font-family: "Geomanist", sans serif;
+	font-size: 90px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
