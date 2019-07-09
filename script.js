@@ -277,6 +277,43 @@ let questions = [
 //create clone of questions array that can be edited without affecting original
 let questionsClone = JSON.parse(JSON.stringify(questions));
 
+//restart game function after min 1 round
+function restartGame() {
+    // winningTrack.stop();
+    // losingTrack.stop();
+
+    moveCounter = 0;
+
+    //clear all hints - remove last child from hint-box
+    const hintBox1 = document.getElementById('hint-1');
+    const hintBox2 = document.getElementById('hint-2');
+    const hintBox3 = document.getElementById('hint-3');
+
+    hintBox1.removeChild(hintBox1.lastChild);
+    hintBox2.removeChild(hintBox2.lastChild);
+    hintBox3.removeChild(hintBox3.lastChild);
+
+    //get new dish
+    getRandomDish();
+
+    //generate hints
+    const questionsOutput = document.getElementById('questions-output');
+    questionsOutput.removeChild(questionsOutput.lastChild);
+    createHintArea();
+
+    //fark i need to remove all children food first
+    let cardsOutput = document.getElementById('cards-output');
+
+    while (cardsOutput.hasChildNodes()) {
+        cardsOutput.removeChild(cardsOutput.firstChild);
+    }
+
+    createFoodCards();
+
+    $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
+    $('.hint').corner();
+}
+
 //win checking function
 function checkForWin() {
     const winningTrack = new Audio('audio/winnerwinnerchickendinner.mp3');
@@ -289,9 +326,7 @@ function checkForWin() {
         winningTrack.play();
         let winningText = document.createElement('span');
         //add winning streak count into inner html
-        winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}.<br><button id="restart">Restart</button>`
-        const restartButton = document.getElementById("restart");
-        restartButton.addEventListener('click', restartGame);
+        winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}. Your current win streak is ${winCounter}.<br><button id="restart" onclick="restartGame()">Play Again</button>`
         overlay.appendChild(winningText);
         overlay.style.display = "block";
 
@@ -302,13 +337,12 @@ function checkForWin() {
             overlay.style.display = "none";
         });
     } else {
-        //reset win counter
-        //insert winning streak (before loss) into innerhtml
         losingTrack.play();
         const losingText = document.createElement('span');
-        losingText.innerHTML = `YOU GUESSED WRONG.. The correct dish was ${dishName}.<br><button class="restart">Restart</button>`
+        losingText.innerHTML = `YOU GUESSED WRONG.. The correct dish was ${dishName}. Your longest win streak was ${winCounter}.<br><button class="restart">Play Again</button>`
         overlay.appendChild(losingText);
         overlay.style.display = "block"
+        winCounter = 0;
 
         overlay.addEventListener("click", function(event) {
             while (overlay.firstChild) {
@@ -375,27 +409,6 @@ function createFoodCards() {
         })
 };
 
-//restart game function after min 1 round
-function restartGame() {
-    //clear all hints - remove last child from hint-box
-    const hintBox1 = document.getElementById('hint-1');
-    const hintBox2 = document.getElementById('hint-2');
-    const hintBox3 = document.getElementById('hint-3');
-
-    hintBox1.removeChild(hintBox1.lastChild);
-    hintBox2.removeChild(hintBox2.lastChild);
-    hintBox3.removeChild(hintBox3.lastChild);
-
-    //get new dish
-    getRandomDish();
-
-    //generate hints
-    const questionsOutput = document.getElementById('questions-output');
-    questionsOutput.removeChild(questionsOutput.lastChild);
-    createHintArea();
-    createFoodCards();
-}
-
 //creates 2 random questions
 function generateHints() {
     //generate two random numbers to get an index from existing questionsClone objects
@@ -446,11 +459,40 @@ function selectHint() {
     const hintBox2 = document.getElementById('hint-2');
     const hintBox3 = document.getElementById('hint-3');
 
+    //remove selected question from questionsClone
+    function removeSelectedQuestion(){
+        if (userInput === 1) {
+            for (var i=0; i < questionsClone.length; i++) {
+                if (questionOne === questionsClone[i]) {
+                    questionsClone.splice(i, 1);
+                }
+            }
+       } else if (userInput === 2) {
+            for (var i=0; i < questionsClone.length; i++) {
+                if (questionTwo === questionsClone[i]) {
+                    questionsClone.splice(i, 1);
+                }
+            }
+       }
+   };
+
+    //targeting the <p> element within question-box, to dynamically reflect new question choices
+    function displayNewChoices() {
+        const choiceDisplay = document.getElementById('question-choice-display');
+        choiceDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> or <br><span class ="question">2. ${questionTwo.question}</span>`
+    };
+
     //move selected hint to relevant hint box based on move counter
     if (moveCounter === 1) {
         hintBox1.appendChild(chosenHint);
+        removeSelectedQuestion();
+        generateHints();
+        displayNewChoices();
     } else if (moveCounter === 2) {
         hintBox2.appendChild(chosenHint);
+        removeSelectedQuestion();
+        generateHints();
+        displayNewChoices();
     } else if (moveCounter === 3) {
         hintBox3.appendChild(chosenHint);
         const questionBox = document.getElementById('questions-output');
@@ -469,27 +511,6 @@ function selectHint() {
         $('.select-btn').show();
     };
 
-    //remove selected question from questionsClone
-    if (userInput === 1) {
-        // meaning that questionsClone[x] aka questionOne should be removed from questionsClone
-        for (var i=0; i < questionsClone.length; i++) {
-            if (questionOne === questionsClone[i]) {
-                questionsClone.splice(i, 1);
-            }
-        }
-   } else if (userInput === 2) {
-    // meaning that questionsClone[y] aka questionTwo should be removed from questionsClone
-        for (var i=0; i < questionsClone.length; i++) {
-            if (questionTwo === questionsClone[i]) {
-                questionsClone.splice(i, 1);
-            }
-        }
-   }
-    generateHints();
-
-    //targeting the <p> element within question-box, to dynamically reflect new question choices
-    const choiceDisplay = document.getElementById('question-choice-display');
-    choiceDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> or <br><span class ="question">2. ${questionTwo.question}</span>`
 }
 
 createHintArea();
