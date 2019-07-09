@@ -18,6 +18,7 @@ let questionTwo = null;
 
 let randomIndex = null;
 let moveCounter = 0;
+let winCounter = 0;
 
 const startingDishes = [
         {
@@ -222,7 +223,6 @@ const startingDishes = [
 //start of game - get random dish
 function getRandomDish() {
     randomIndex = Math.floor(Math.random() * 18);
-    console.log(randomIndex);
 
     dishName = startingDishes[randomIndex].name;
     dishEthnicity = startingDishes[randomIndex].ethnicity;
@@ -233,12 +233,6 @@ function getRandomDish() {
     dishType = startingDishes[randomIndex].dishType;
 
     console.log(dishName);
-    // console.log(dishEthnicity);
-    // console.log(dishTemp);
-    // console.log(dishBase);
-    // console.log(dishServe);
-    // console.log(dishColor);
-    // console.log(dishType);
 };
 getRandomDish();
 
@@ -282,22 +276,22 @@ let questions = [
 
 //create clone of questions array that can be edited without affecting original
 let questionsClone = JSON.parse(JSON.stringify(questions));
-// console.log(questionsClone);
 
 //win checking function
 function checkForWin() {
-    //create win counter here
-
     const winningTrack = new Audio('audio/winnerwinnerchickendinner.mp3');
     const losingTrack = new Audio('audio/sadness.mp3');
 
     const overlay = document.getElementById("overlay");
 
     if (this.id == randomIndex) {
+        winCounter += 1;
         winningTrack.play();
         let winningText = document.createElement('span');
-        winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}.<br><button class="restart">Restart</button>`
-        //create restart button to get new random dish, clear all current hints and generate question and food area again
+        //add winning streak count into inner html
+        winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}.<br><button id="restart">Restart</button>`
+        const restartButton = document.getElementById("restart");
+        restartButton.addEventListener('click', restartGame);
         overlay.appendChild(winningText);
         overlay.style.display = "block";
 
@@ -306,9 +300,10 @@ function checkForWin() {
                 overlay.removeChild(overlay.firstChild)
             }
             overlay.style.display = "none";
-            // create potential to start a new game
         });
     } else {
+        //reset win counter
+        //insert winning streak (before loss) into innerhtml
         losingTrack.play();
         const losingText = document.createElement('span');
         losingText.innerHTML = `YOU GUESSED WRONG.. The correct dish was ${dishName}.<br><button class="restart">Restart</button>`
@@ -324,6 +319,82 @@ function checkForWin() {
         })
     }
 };
+
+//dynamically creates the game area based on the pre-calculated values above
+function createHintArea() {
+    const questionsOutput = document.getElementById('questions-output');
+
+    let hintsDisplay = document.createElement('p');
+    hintsDisplay.id = ('question-choice-display');
+    hintsDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> OR <br><span class ="question">2. ${questionTwo.question}</span>`
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.id = "input";
+    input.placeholder = "Pick 1 or 2";
+
+    input.addEventListener("keydown", event => {
+    if (event.keyCode == 13) {
+        selectHint();
+        }
+    });
+
+    questionsOutput.appendChild(hintsDisplay);
+    questionsOutput.appendChild(input);
+}
+
+function createFoodCards() {
+    for (var i = 0; i < startingDishes.length; i++) {
+        var cardsOutput = document.getElementById('cards-output');
+
+        var foodCard = document.createElement('div');
+        foodCard.className = 'food-card';
+
+        var foodImage = document.createElement('img');
+        foodImage.className = 'food-photo';
+        foodImage.src = startingDishes[i].image;
+
+        var foodName = document.createElement("p");
+        foodName.innerHTML = startingDishes[i].name;
+
+        var selectButton = document.createElement('button');
+        selectButton.className = 'select-btn';
+        selectButton.type = 'submit';
+        selectButton.innerText = "Select";
+        selectButton.id = i;
+        selectButton.value = i;
+        selectButton.addEventListener('click', checkForWin);
+
+        foodCard.appendChild(foodImage);
+        foodCard.appendChild(foodName);
+        foodCard.appendChild(selectButton);
+        cardsOutput.appendChild(foodCard);
+    }
+        $('.food-photo').on('click', () => {
+        $(event.target).toggleClass('hide');
+        })
+};
+
+//restart game function after min 1 round
+function restartGame() {
+    //clear all hints - remove last child from hint-box
+    const hintBox1 = document.getElementById('hint-1');
+    const hintBox2 = document.getElementById('hint-2');
+    const hintBox3 = document.getElementById('hint-3');
+
+    hintBox1.removeChild(hintBox1.lastChild);
+    hintBox2.removeChild(hintBox2.lastChild);
+    hintBox3.removeChild(hintBox3.lastChild);
+
+    //get new dish
+    getRandomDish();
+
+    //generate hints
+    const questionsOutput = document.getElementById('questions-output');
+    questionsOutput.removeChild(questionsOutput.lastChild);
+    createHintArea();
+    createFoodCards();
+}
 
 //creates 2 random questions
 function generateHints() {
@@ -421,63 +492,5 @@ function selectHint() {
     choiceDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> or <br><span class ="question">2. ${questionTwo.question}</span>`
 }
 
-//dynamically creates the game area based on the pre-calculated values above
-function createHintArea() {
-    var questionsOutput = document.getElementById('questions-output');
-
-    var hintsDisplay = document.createElement('p');
-    hintsDisplay.id = ('question-choice-display');
-    hintsDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> OR <br><span class ="question">2. ${questionTwo.question}</span>`
-
-    var input = document.createElement("input");
-    input.type = "text";
-    input.id = "input";
-    input.placeholder = "Pick 1 or 2";
-
-    input.addEventListener("keydown", event => {
-    if (event.keyCode == 13) {
-        selectHint();
-        }
-    });
-
-    // now making 3 diff hint boxes in the html itself and populating with DOM so meanssss i have to do it in the selectHint() function
-
-    questionsOutput.appendChild(hintsDisplay);
-    questionsOutput.appendChild(input);
-}
-
-function createFoodCards() {
-    for (var i = 0; i < startingDishes.length; i++) {
-        var cardsOutput = document.getElementById('cards-output');
-
-        var foodCard = document.createElement('div');
-        foodCard.className = 'food-card';
-
-        var foodImage = document.createElement('img');
-        foodImage.className = 'food-photo';
-        foodImage.src = startingDishes[i].image;
-
-        var foodName = document.createElement("p");
-        foodName.innerHTML = startingDishes[i].name;
-
-        var selectButton = document.createElement('button');
-        selectButton.className = 'select-btn';
-        // selectButton.className = 'hide';
-        selectButton.type = 'submit';
-        selectButton.innerText = "Select";
-        selectButton.id = i;
-        selectButton.value = i;
-        selectButton.addEventListener('click', checkForWin);
-        //also add event listener to each food pic to add toggle img feature
-
-        foodCard.appendChild(foodImage);
-        foodCard.appendChild(foodName);
-        foodCard.appendChild(selectButton);
-        cardsOutput.appendChild(foodCard);
-    }
-        $('.food-photo').on('click', () => {
-        $(event.target).toggleClass('hide');
-        })
-};
 createHintArea();
 createFoodCards();
