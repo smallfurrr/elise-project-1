@@ -23,7 +23,12 @@ font-style: normal;
 }
 
 body {
-	padding: 10px;
+	padding: 50px 10px;
+}
+
+/*@media (min-width: 992px)*/
+.offset-lg-2 {
+    margin-left: 12.666667%;
 }
 
 .modal {
@@ -83,22 +88,19 @@ text-align: center;
 	font-family: 'Geomanist', sans serif;
 	font-size: 18px;
 	font-weight: lighter;
-	color: white;
+	color: black;
 	margin: 7px 0;
 	letter-spacing: 5px;
 }
 
-/*speech bubble itself - now only relevant for the last you need to choose part i think*/
-#questions-output p {
-	font-family: 'Geomanist', sans serif;
-	color: white;
-	font-size: 25px;
-	margin-top: 20px;
+/*speech bubble itself*/
+#questions-output {
 }
 
 /*ALL the text in the speech bubble*/
 #question-choice-display {
 	font-family: 'Geomanist', sans serif;
+	font-weight: lighter;
 	color: black;
 	font-size: 12px;
 	margin-top: 20px;
@@ -107,6 +109,7 @@ text-align: center;
 /*JUST the questions in the speech bubble*/
 .question {
 	font-family: 'Geomanist', sans serif;
+	font-weight: normal !important;
 	color: white;
 	font-size: 20px;
 }
@@ -121,7 +124,7 @@ text-align: center;
 }
 
 ::placeholder {
-	color: white;
+	color: black;
 	font-family: 'Geomanist', sans serif;
 	font-weight: lighter;
 	font-size: 18px;
@@ -145,8 +148,28 @@ text-align: center;
     outline: none;
 }
 
+/*targets only the time to choose html*/
+.choose {
+	font-family: 'Geomanist', sans serif;
+	color: white;
+	font-size: 25px;
+	margin-top: 20px;
+}
+
+.hints-row {
+	text-align: center;
+}
+
 #questions-bottom {
 	display: flex;
+}
+
+.hints-header h1 {
+	/*font-family: 'Geomanist', sans serif;*/
+	font-family: 'Atlas', sans serif;
+	font-weight: normal;
+	font-size: 20px;
+	margin-top: 20px;
 }
 
 /*all 3 hint boxes*/
@@ -222,6 +245,9 @@ text-align: center;
 	bottom: -55px;
   left: 50%;
   transform: translateX(-50%);
+  font-family: Geomanist;
+  font-weight: lighter;
+  letter-spacing: 0.5px;
 }
 
 .hide {

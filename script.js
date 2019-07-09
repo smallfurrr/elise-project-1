@@ -296,7 +296,8 @@ function checkForWin() {
     if (this.id == randomIndex) {
         winningTrack.play();
         let winningText = document.createElement('span');
-        winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}.`
+        winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}.<br><button class="restart">Restart</button>`
+        //create restart button to get new random dish, clear all current hints and generate question and food area again
         overlay.appendChild(winningText);
         overlay.style.display = "block";
 
@@ -310,7 +311,7 @@ function checkForWin() {
     } else {
         losingTrack.play();
         const losingText = document.createElement('span');
-        losingText.innerHTML = `YOU GUESSED WRONG.. The correct dish was ${dishName}.`
+        losingText.innerHTML = `YOU GUESSED WRONG.. The correct dish was ${dishName}.<br><button class="restart">Restart</button>`
         overlay.appendChild(losingText);
         overlay.style.display = "block"
 
@@ -350,7 +351,6 @@ generateHints();
 function selectHint() {
     //keeping track of rounds. once 3 rounds, show submit and check for win
     moveCounter += 1;
-    // console.log(moveCounter);
 
     //place the 2 random question-answer objects in their own array displayedQuestions
     //ensure that displayedQuestions empties each time selectHint() runs
@@ -389,7 +389,7 @@ function selectHint() {
         };
 
         const timeToChoose = document.createElement('p');
-        timeToChoose.innerHTML = `All hints received!<br>Pick the dish you think is right using the select buttons.`
+        timeToChoose.innerHTML = `<p class="choose">All hints received!<br>Pick the dish you think is right using the select buttons.</span>`
         questionBox.appendChild(timeToChoose);
 
         //display countdown??
