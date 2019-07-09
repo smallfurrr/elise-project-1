@@ -1,23 +1,23 @@
 @font-face {
   font-family: 'Atlas';
-  src: url('fonts/atlas.woff');
+  src: url('../fonts/atlas.woff');
 }
 
 @font-face {
 font-family: 'Geomanist';
-src: url('fonts/Geomanist-Book.woff');
+src: url('../fonts/Geomanist-Book.woff');
 font-weight: normal;
 font-style: normal;
 }
 @font-face {
 font-family: 'Geomanist';
-src: url('fonts/Geomanist-Light.woff');
+src: url('../fonts/Geomanist-Light.woff');
 font-weight: 200;
 font-style: normal;
  }
 @font-face {
 font-family: 'Geomanist';
-src: url('fonts/Geomanist-Regular.woff');
+src: url('../fonts/Geomanist-Regular.woff');
 font-weight: 500;
 font-style: normal;
 }
@@ -53,7 +53,7 @@ text-align: center;
 }
 
 .genie {
-	background-image: url('images/icon/1.png');
+	background-image: url('../images/icon/1.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 	min-height: 100px;
@@ -249,7 +249,7 @@ text-align: center;
 }
 
 .hide {
-	content:url("images/card-backs/back.jpeg");
+	content:url("../images/card-backs/back.jpeg");
 }
 
  #overlay {

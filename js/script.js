@@ -29,7 +29,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "White",
             dishType: "Meal",
-            image:"images/foodphotoscrop/chicken-rice.jpeg"
+            image:"../images/foodphotoscrop/chicken-rice.jpeg"
         },
 
         {
@@ -40,7 +40,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Red",
             dishType: "Meal",
-            image:"images/foodphotoscrop/laksa.jpeg"
+            image:"../images/foodphotoscrop/laksa.jpeg"
         },
 
         {
@@ -51,7 +51,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Brown",
             dishType: "Meal",
-            image:"images/foodphotoscrop/roti-prata.jpeg"
+            image:"../images/foodphotoscrop/roti-prata.jpeg"
         },
 
         {
@@ -62,7 +62,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Green",
             dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/pandan-cake.jpeg"
+            image:"../images/foodphotoscrop/pandan-cake.jpeg"
         },
 
         {
@@ -73,7 +73,7 @@ const startingDishes = [
             servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/curry-puff.jpeg"
+            image:"../images/foodphotoscrop/curry-puff.jpeg"
         },
 
         {
@@ -84,7 +84,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Red",
             dishType: "Meal",
-            image:"images/foodphotoscrop/chilli-crab.jpeg"
+            image:"../images/foodphotoscrop/chilli-crab.jpeg"
         },
 
         {
@@ -95,7 +95,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "White",
             dishType: "Meal",
-            image:"images/foodphotoscrop/nasi-lemak.jpeg"
+            image:"../images/foodphotoscrop/nasi-lemak.jpeg"
         },
 
         {
@@ -106,7 +106,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Yellow",
             dishType: "Meal",
-            image:"images/foodphotoscrop/hokkien-mee.jpeg"
+            image:"../images/foodphotoscrop/hokkien-mee.jpeg"
         },
 
         {
@@ -117,7 +117,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Brown",
             dishType: "Meal",
-            image:"images/foodphotoscrop/mee-rebus.jpeg"
+            image:"../images/foodphotoscrop/mee-rebus.jpeg"
         },
 
         {
@@ -128,7 +128,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Green",
             dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/chendol.jpeg"
+            image:"../images/foodphotoscrop/chendol.jpeg"
         },
 
         {
@@ -139,7 +139,7 @@ const startingDishes = [
             servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Meal",
-            image:"images/foodphotoscrop/satay.jpeg"
+            image:"../images/foodphotoscrop/satay.jpeg"
         },
 
         {
@@ -150,7 +150,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Yellow",
             dishType: "Meal",
-            image:"images/foodphotoscrop/nasi-briyani.jpeg"
+            image:"../images/foodphotoscrop/nasi-briyani.jpeg"
         },
 
         {
@@ -161,7 +161,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Red",
             dishType: "Meal",
-            image:"images/foodphotoscrop/fish-head-curry.jpeg"
+            image:"../images/foodphotoscrop/fish-head-curry.jpeg"
         },
 
         {
@@ -172,7 +172,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Brown",
             dishType: "Meal",
-            image:"images/foodphotoscrop/beef-rendang.jpeg"
+            image:"../images/foodphotoscrop/beef-rendang.jpeg"
         },
 
         {
@@ -183,7 +183,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Red",
             dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/ice-kachang.jpeg"
+            image:"../images/foodphotoscrop/ice-kachang.jpeg"
         },
 
         {
@@ -194,7 +194,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Red",
             dishType: "Meal",
-            image:"images/foodphotoscrop/tandoori-chicken.jpeg"
+            image:"../images/foodphotoscrop/tandoori-chicken.jpeg"
         },
 
         {
@@ -205,7 +205,7 @@ const startingDishes = [
             servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/goreng-pisang.jpeg"
+            image:"../images/foodphotoscrop/goreng-pisang.jpeg"
         },
 
         {
@@ -216,7 +216,7 @@ const startingDishes = [
             servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
-            image:"images/foodphotoscrop/vadai.jpeg"
+            image:"../images/foodphotoscrop/vadai.jpeg"
         }
 ];
 
@@ -235,11 +235,6 @@ function getRandomDish() {
     console.log(dishName);
 };
 getRandomDish();
-
-   // var selectHint = function {
-        //create random index twice
-        //get questions based
-    // }
 
 //questions must be placed after getRandomDish() or all answers will be undefined
 let questions = [
@@ -279,12 +274,9 @@ let questionsClone = JSON.parse(JSON.stringify(questions));
 
 //restart game function after min 1 round
 function restartGame() {
-    var sounds = document.getElementsByTagName('audio');
-    sounds.stop();
-
     moveCounter = 0;
 
-    //clear all hints - remove last child from hint-box
+    //clear hint box
     const hintBox1 = document.getElementById('hint-1');
     const hintBox2 = document.getElementById('hint-2');
     const hintBox3 = document.getElementById('hint-3');
@@ -293,31 +285,71 @@ function restartGame() {
     hintBox2.removeChild(hintBox2.lastChild);
     hintBox3.removeChild(hintBox3.lastChild);
 
-    //get new dish
-    getRandomDish();
-
-    //generate hints
+    //clear speech bubble
     const questionsOutput = document.getElementById('questions-output');
     questionsOutput.removeChild(questionsOutput.lastChild);
-    createHintArea();
 
-    //fark i need to remove all children food first
+    //remove all food cards
     let cardsOutput = document.getElementById('cards-output');
-
     while (cardsOutput.hasChildNodes()) {
         cardsOutput.removeChild(cardsOutput.firstChild);
     }
 
+    //get new dish
+    getRandomDish();
+
+    //update questions array
+    questions = [
+        {
+            question: "Which ethnic group is this dish most commonly associated with?",
+            answer: `${dishEthnicity}`
+        },
+
+        {
+            question: "Is this dish best eaten warm or cold?",
+            answer: `${dishTemp}`
+        },
+
+        {
+            question: "Is this dish noodle, rice, or meat-based?",
+            answer: `${dishBase}`
+        },
+
+        {
+            question: "What does this dish USUALLY come served in?",
+            answer: `${dishServe}`
+        },
+
+        {
+            question: "What is the primary color of this dish?",
+            answer: `${dishColor}`
+        },
+
+        {
+            question: "Is this dish USUALLY eaten as a snack/dessert or a main meal?",
+            answer: `${dishType}`
+        }
+    ];
+
+    //restock questionsClone
+    questionsClone = JSON.parse(JSON.stringify(questions));
+    console.log(questionsClone);
+
+    //get first 2 hints
+    generateHints();
+
+    //create game area
+    createHintArea();
     createFoodCards();
 
     $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
     $('.hint').corner();
-}
+};
 
 //win checking function
 function checkForWin() {
-    const winningTrack = new Audio('audio/winnerwinnerchickendinner.mp3');
-    const losingTrack = new Audio('audio/sadness.mp3');
+    const winningTrack = new Audio('../audio/winnerwinnerchickendinner.mp3');
+    const losingTrack = new Audio('../audio/sadness.mp3');
 
     const overlay = document.getElementById("overlay");
 
@@ -325,7 +357,6 @@ function checkForWin() {
         winCounter += 1;
         winningTrack.play();
         let winningText = document.createElement('span');
-        //add winning streak count into inner html
         winningText.innerHTML = `YOU GUESSED RIGHT! The dish was ${dishName}. Your current win streak is ${winCounter}.<br><button id="restart" onclick="restartGame()">Play Again</button>`
         overlay.appendChild(winningText);
         overlay.style.display = "block";
@@ -349,7 +380,6 @@ function checkForWin() {
                 overlay.removeChild(overlay.firstChild);
             }
             overlay.style.display = "none";
-            // create potential to start a new game
         })
     }
 };
@@ -375,7 +405,7 @@ function createHintArea() {
 
     questionsOutput.appendChild(hintsDisplay);
     questionsOutput.appendChild(input);
-}
+};
 
 function createFoodCards() {
     for (var i = 0; i < startingDishes.length; i++) {
@@ -419,15 +449,9 @@ function generateHints() {
         x = Math.floor(Math.random()* questionsClone.length);
     }
 
-    // console.log(x);
-    // console.log(y);
-
     //saving 2 question objects from questionsClone as the 2 current display questions
     questionOne = questionsClone[x];
     questionTwo = questionsClone[y];
-
-    // console.log(questionOne);
-    // console.log(questionTwo);
 };
 generateHints();
 
@@ -454,12 +478,7 @@ function selectHint() {
     let chosenHint = document.createElement('p');
     chosenHint.innerHTML = `<span class= "hint-display-question">${displayedQuestions[selectedIndex].question}</span><br><span class="hint-display-answer">${displayedQuestions[selectedIndex].answer}</span>`
 
-    //targeting the hint boxes
-    const hintBox1 = document.getElementById('hint-1');
-    const hintBox2 = document.getElementById('hint-2');
-    const hintBox3 = document.getElementById('hint-3');
-
-    //remove selected question from questionsClone
+    //function to remove selected question from questionsClone
     function removeSelectedQuestion(){
         if (userInput === 1) {
             for (var i=0; i < questionsClone.length; i++) {
@@ -481,6 +500,11 @@ function selectHint() {
         const choiceDisplay = document.getElementById('question-choice-display');
         choiceDisplay.innerHTML = `<span class ="question"> 1. ${questionOne.question}</span><br> or <br><span class ="question">2. ${questionTwo.question}</span>`
     };
+
+    //targeting the hint boxes
+    const hintBox1 = document.getElementById('hint-1');
+    const hintBox2 = document.getElementById('hint-2');
+    const hintBox3 = document.getElementById('hint-3');
 
     //move selected hint to relevant hint box based on move counter
     if (moveCounter === 1) {
@@ -505,13 +529,10 @@ function selectHint() {
         timeToChoose.innerHTML = `<p class="choose">All hints received!<br>Pick the dish you think is right using the select buttons.</span>`
         questionBox.appendChild(timeToChoose);
 
-        //display countdown??
-
         //show select buttons
         $('.select-btn').show();
     };
-
-}
+};
 
 createHintArea();
 createFoodCards();
