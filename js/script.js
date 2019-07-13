@@ -1,8 +1,8 @@
-$(window).load(() => {
-$("#ex1").modal('show');
-$('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
-$('.hint').corner();
-});
+// $(window).load(() => {
+// $("#ex1").modal('show');
+// $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
+// $('.hint').corner();
+// });
 
 //necessary global variables
 let dishName = null;
@@ -536,3 +536,7 @@ function selectHint() {
 
 createHintArea();
 createFoodCards();
+
+$("#ex1").modal('show');
+$('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
+$('.hint').corner();
