@@ -203,7 +203,6 @@ text-align: center;
 }
 
 #cards-output {
-	/*background-image: url('images/backgrounds/2.jpg');*/
 	background-size: contain;
 	padding: 5px;
 	margin: 0 auto;

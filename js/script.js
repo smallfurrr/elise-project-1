@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(window).ready(() => {
 $("#ex1").modal('show');
 $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
 $('.hint').corner();
@@ -29,7 +29,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "White",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/chicken-rice.jpeg"
+            image:"images/foodphotoscrop/chicken-rice.jpeg"
         },
 
         {
@@ -40,7 +40,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Red",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/laksa.jpeg"
+            image:"images/foodphotoscrop/laksa.jpeg"
         },
 
         {
@@ -51,7 +51,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Brown",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/roti-prata.jpeg"
+            image:"images/foodphotoscrop/roti-prata.jpeg"
         },
 
         {
@@ -62,7 +62,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Green",
             dishType: "Snack or Dessert",
-            image:"../images/foodphotoscrop/pandan-cake.jpeg"
+            image:"images/foodphotoscrop/pandan-cake.jpeg"
         },
 
         {
@@ -73,7 +73,7 @@ const startingDishes = [
             servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
-            image:"../images/foodphotoscrop/curry-puff.jpeg"
+            image:"images/foodphotoscrop/curry-puff.jpeg"
         },
 
         {
@@ -84,7 +84,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Red",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/chilli-crab.jpeg"
+            image:"images/foodphotoscrop/chilli-crab.jpeg"
         },
 
         {
@@ -95,7 +95,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "White",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/nasi-lemak.jpeg"
+            image:"images/foodphotoscrop/nasi-lemak.jpeg"
         },
 
         {
@@ -106,7 +106,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Yellow",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/hokkien-mee.jpeg"
+            image:"images/foodphotoscrop/hokkien-mee.jpeg"
         },
 
         {
@@ -117,7 +117,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Brown",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/mee-rebus.jpeg"
+            image:"images/foodphotoscrop/mee-rebus.jpeg"
         },
 
         {
@@ -128,7 +128,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Green",
             dishType: "Snack or Dessert",
-            image:"../images/foodphotoscrop/chendol.jpeg"
+            image:"images/foodphotoscrop/chendol.jpeg"
         },
 
         {
@@ -139,7 +139,7 @@ const startingDishes = [
             servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/satay.jpeg"
+            image:"images/foodphotoscrop/satay.jpeg"
         },
 
         {
@@ -150,7 +150,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Yellow",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/nasi-briyani.jpeg"
+            image:"images/foodphotoscrop/nasi-briyani.jpeg"
         },
 
         {
@@ -161,7 +161,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Red",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/fish-head-curry.jpeg"
+            image:"images/foodphotoscrop/fish-head-curry.jpeg"
         },
 
         {
@@ -172,7 +172,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Brown",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/beef-rendang.jpeg"
+            image:"images/foodphotoscrop/beef-rendang.jpeg"
         },
 
         {
@@ -183,7 +183,7 @@ const startingDishes = [
             servingDish: "Bowl",
             color: "Red",
             dishType: "Snack or Dessert",
-            image:"../images/foodphotoscrop/ice-kachang.jpeg"
+            image:"images/foodphotoscrop/ice-kachang.jpeg"
         },
 
         {
@@ -194,7 +194,7 @@ const startingDishes = [
             servingDish: "Plate",
             color: "Red",
             dishType: "Meal",
-            image:"../images/foodphotoscrop/tandoori-chicken.jpeg"
+            image:"images/foodphotoscrop/tandoori-chicken.jpeg"
         },
 
         {
@@ -205,7 +205,7 @@ const startingDishes = [
             servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
-            image:"../images/foodphotoscrop/goreng-pisang.jpeg"
+            image:"images/foodphotoscrop/goreng-pisang.jpeg"
         },
 
         {
@@ -216,7 +216,7 @@ const startingDishes = [
             servingDish: "NOT a plate or bowl",
             color: "Brown",
             dishType: "Snack or Dessert",
-            image:"../images/foodphotoscrop/vadai.jpeg"
+            image:"images/foodphotoscrop/vadai.jpeg"
         }
 ];
 
