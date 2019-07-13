@@ -1,9 +1,3 @@
-// $(window).load(() => {
-// $("#ex1").modal('show');
-// $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
-// $('.hint').corner();
-// });
-
 //necessary global variables
 let dishName = null;
 let dishEthnicity = null;
@@ -537,6 +531,8 @@ function selectHint() {
 createHintArea();
 createFoodCards();
 
+$(window).load(() => {
 $("#ex1").modal('show');
 $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
 $('.hint').corner();
+});
