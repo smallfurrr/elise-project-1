@@ -531,8 +531,14 @@ function selectHint() {
 createHintArea();
 createFoodCards();
 
-$(window).load(() => {
-$("#ex1").modal('show');
-$('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
-$('.hint').corner();
-});
+// $(window).load(() => {
+// $("#ex1").modal('show');
+// $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
+// $('.hint').corner();
+// });
+
+window.onload = function() {
+    $("#ex1").modal('show');
+    $('.food-card').corner("notch 8px").parent().css('padding', '8px').corner("notch 8px");
+    $('.hint').corner();
+};
