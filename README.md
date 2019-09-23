@@ -1,4 +1,4 @@
-# what-the-food
+# What The Food?!
 
 Singapore is famous for its food, but how well do you really know our local dishes? 
 This is a guessing game where you have to derive the answer through process of elimination!
