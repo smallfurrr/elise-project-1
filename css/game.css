@@ -218,8 +218,8 @@ text-align: center;
 .food-photo {
 	max-width: 200px;
 	height: 150px;
-	/*box-shadow: 6px 9px 11px -5px rgba(102,102,102,0.67);*/
 	box-shadow: inset -1px -12px 36px 6px rgba(112,112,112,0.69);
+	position: relative;
 }
 
 .food-card p {
@@ -227,12 +227,12 @@ text-align: center;
 	font-size: 15px;
 	text-align: center;
 	text-decoration: none;
-  border-bottom: 2px dashed #F3A95E;
+  	border-bottom: 2px dashed #F3A95E;
 	width: 80%;
 	margin: 5px;
 	position: absolute;
-  left: 50%;
-  transform: translateX(-50%)
+  	left: 50%;
+  	transform: translateX(-50%)
 }
 
 .select-btn {
